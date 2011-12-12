@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<project name="KepplersOrrery" default="jar">
+
+<!--
+2008 May 10 Bruce Boyes, trying to build the project. No build or project files are
+in SVN so I'm trying to create one.
+-->
+
+<!-- Use Windoze enviroment variables to map all drive letters 
+	This keeps all the paths in this build file relative so that they
+	run anywhere on the Systronix network - and maybe yours too! -->
+	<property environment="env"/>
+	<property name="PkgPath" value="**"/>
+	<!-- this only gets one package in the jar task
+	<property name="PkgPath" value="com/systronix/util"/>
+	-->
+	<property name="Project" value="KepplersOrrery"/>
+	<property name="revision" value="20090106"/>
+	<property name="date" value="now" />
+
+
+<target name="init">	
+	<echo message="This is the ${Project} project, with package path ${PkgPath}"/>
+	<echo message=""/>
+	<echo message="ANT_HOME is set to = ${env.ANT_HOME}"/>
+	<echo message="JAVA_HOME is set to = ${env.JAVA_HOME}"/>
+	<echo message="CLDC_HOME is set to = ${env.CLDC_HOME}"/>
+
+	<!-- Create the time stamp -->
+	<tstamp/>
+	<!-- Create the binary dirs -->
+	<mkdir dir="classes"/>
+	<echo message="DELETING ALL CURRENT CLASS FILES"/>
+	<delete>
+		<fileset dir="classes" includes="**/*.class" /> 
+	</delete>
+</target>
+
+<target name="compile" depends="init">
+    <!-- Ensure the following properties are set -->    	
+    <property name="include.src" value="**/*.java"/>
+    <property name="exclude.src" value="**/SunSpot*.java"/>
+	
+	<javac target="1.5" source="1.5"
+		bootclasspath=" 
+					${env.JAVA_HOME}/jre/lib/rt.jar;
+			"
+		srcdir="src" 
+		destdir="classes" />
+	<!-- includes="**/*.java" -->
+	<echo>Compilation Complete</echo>
+</target>
+
+<target name="doc" >
+	<mkdir dir="doc"/>
+	<javadoc
+		bootclasspath=" 
+					${env.JAVA_HOME}/jre/lib/rt.jar;
+		"
+		private="true"
+		author="true"
+		doctitle="Kepplers Orrery"
+		windowtitle="Build for J2SE on PC"	
+		destdir="doc" >
+		<!-- we want all doc files including gif, jpg, etc -->
+		<fileset dir="." includes="src/${PkgPath}/*.java" />
+		<bottom>
+			<![CDATA[<i>Copyright &#169; 2007 Simran Gleason.<br>
+			</i>]]>
+			</bottom>
+	</javadoc>
+	<echo>Javadoc generation Complete</echo>
+</target>
+
+
+<!-- getting all packages into the jar, not just the package path -->
+<target name="jar" depends="init, compile, doc">
+	<jar destfile="${Project}${revision}.jar" >
+		<fileset dir="classes" includes="${PkgPath}/*.class" /> 		
+		<fileset dir="." includes="src/${PkgPath}/*" /> 
+		<fileset dir="." includes="doc/${PkgPath}/*" />
+		<!-- the amulet folder contains any Amulet GUI screens -->
+		<fileset dir="." includes="amulet/*" />
+		<!-- javadocs are in the docs folder, collect _all_ files there, not just html -->
+		<fileset dir="." includes="doc/*" />
+		<fileset dir="." includes="*.bat, *.xml, *.ajp" />	
+		<fileset dir="." includes="*.project, *.classpath" />
+	</jar>
+</target>
+
+
+
+</project>

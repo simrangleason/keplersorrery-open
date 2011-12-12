@@ -1,0 +1,81 @@
+Title Ringworld Too
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+maxbodies 50
+maxrocks 50
+radius 50000.
+friction .995
+gridcircles 10
+gridradii 16
+maxmass 20.e14
+reboundmethod circle
+background clear
+background circle
+drawbg
+
+channel 0  piano1       0 0 
+channel 1  panflute       0 75
+channel 2  Fantasia     0 88 
+channel 3  Goblins      0 101
+channel 4  vibes        0 11
+channel 5  bottle        0 76
+channel 6  SynStrings   0 50
+channel 7  Soundtrack     0 97
+channel 8  fretlessbass 0 35
+channel 9  IceRain      0 96
+channel 10 celesta        0 8
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 Kalimba      0 108
+channel 14 BowedGlass   0 92
+channel 15 tuba         0 58
+end_channels
+
+melody ring A1 . E2 G3 . D1 . . A1 G1 . . E2 _ _ . . end
+melody thunder E1 _ _ . . D1 . . _ _ _ end
+melody ships E2 _ _ . . D2 . . _ _ _ end
+melody asteroids1 A2 _ _ . . G2 . . E3 C3 A3 . . _ _ _ end
+melody asteroids2 A2 C2 E2 . . G2 . . A3 C3 E3 G3 .  E3 A3 _ _ _ end
+melody asteroids3 G3 E3 B3 . . E3 D3 G3 B3 E3 _ _ E2 . . G2 E2 E3 . .  end
+
+body  polar 2200.  73. polar 4. 163. 6.0e14  inst celesta melody ships mutate mass% 15 90. 107. end
+body  polar 2200. 193. polar 4. 283. 6.0e14  inst celesta melody ships mutate mass% 15 90. 107. end
+body  polar 2200. 313. polar 4. 403. 6.0e14  inst celesta melody ships mutate mass% 15 90. 107. end
+
+rock  polar 30000.    0.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.   15.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 80. 107. end
+rock  polar 30000.   30.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.   45.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.   60.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 80. 107. end
+rock  polar 30000.   75.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.   90.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.  105.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 80. 107. end
+rock  polar 30000.  120.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.  135.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 80. 107. end
+rock  polar 30000.  150.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.  165.  12.0e14 inst Soundtrack melody shared ring mutate mass% 10 80. 107. end
+rock  polar 30000.  180.  12.0e14 inst Soundtrack melody  shared ring mutate mass% 10 85. 107. end
+rock  polar 30000.  195.  12.0e14 inst Soundtrack melody  shared ring mutate mass% 10 85. 107. end
+rock  polar 30000.  210.  12.0e14 inst Soundtrack melody  shared ring mutate mass% 10 80. 107. end
+rock  polar 30000.  225.  12.0e14 inst Soundtrack melody  shared ring mutate mass% 10 85. 107. end
+rock  polar 30000.  240.  12.0e14 inst Soundtrack melody  shared ring mutate mass% 10 85. 107. end
+rock  polar 30000.  255.  12.0e14 inst Soundtrack melody  shared ring mutate mass% 10 85. 107. end
+rock  polar 30000.  270.  12.0e14 inst Soundtrack melody  shared ring mutate mass% 10 80. 107. end
+rock  polar 30000.  285.  12.0e14 inst Soundtrack melody  shared ring mutate mass% 10 85. 107. end
+rock  polar 30000.  300.  12.0e14 inst Soundtrack melody  shared ring mutate mass% 20 85. 107. end
+rock  polar 30000.  315.  12.0e14 inst Soundtrack melody  shared ring mutate mass% 20 80. 107. end
+rock  polar 30000.  330.  12.0e14 inst Soundtrack melody  shared ring mutate mass% 10 85. 107. end
+rock  polar 30000.  345.  12.0e14 inst Soundtrack melody  shared ring mutate mass% 10 85. 107. end
+
+
+body  polar 49300.  60. polar 18. 150. 6.0e14  inst BowedGlass melody asteroids1 mutate mass% 15 90. 107. end
+body  polar 49300.  90. polar 18. 180. 6.0e14  inst BowedGlass melody asteroids1 mutate mass% 15 90. 107. end
+body  polar 49300. 120. polar 18. 210. 6.0e14  inst BowedGlass melody asteroids1 mutate mass% 15 90. 107. end
+body  polar 49300. 180. polar 18. 270. 6.0e14  inst vibes melody shared asteroids2 mutate mass% 15 90. 107. end
+body  polar 49300. 210. polar 18. 300. 6.0e14  inst vibes melody shared asteroids2 mutate mass% 15 90. 107. end
+body  polar 49300. 240. polar 18. 330. 6.0e14  inst vibes melody shared asteroids2 mutate mass% 15 90. 107. end
+body  polar 49300. 300. polar 18. 390. 6.0e14  inst vibes melody shared asteroids3 mutate mass% 15 90. 107. end
+body  polar 49300. 330. polar 18.  60. 6.0e14  inst vibes melody shared asteroids3 mutate mass% 15 90. 107. end
+body  polar 49300. 360. polar 18.  90. 6.0e14  inst vibes melody shared asteroids3 mutate mass% 15 90. 107. end

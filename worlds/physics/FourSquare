@@ -1,0 +1,69 @@
+# 
+# Infos
+# 
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+@author Simran Gleason
+
+# 
+# Metadata
+# 
+title Four Square
+maxbodies 50
+maxrocks 50
+radius 50000.0
+friction 1.0
+repelFactor 0.
+maxmass 4.5E15
+gridcircles 10
+gridradii 16
+reboundmethod none
+background clear
+background starclusters
+background starclusters
+
+drawbg
+# 
+# Instruments
+# 
+channel 0 piano1 0 0
+channel 1 BowedGlass 0 92
+channel 2 piano3 0 0
+channel 3 SeaShore 0 122
+channel 4 vibes 0 11
+channel 5 organ 0 19
+channel 6 Taiko 0 116
+channel 7 SweepPad 0 95
+channel 8 IceRain 0 96
+channel 9 ReverseCymbal 0 119
+channel 10 koto 0 107
+channel 11 slowstrings 0 49
+channel 12 pizzicato 0 45
+channel 13 FretNoise 0 120
+channel 14 Telephone 0 124
+channel 15 Helicopter 0 125
+end_channels
+
+# 
+# Melodies
+# 
+
+melody shimmer D2 _ _ _ C3 E2 D2 . . E2 D2 C2 . . D3 D2 E2 end
+melody glisten D2 _ _ G1 D1 E1 . . _ _ E2 G2 C1 E2 D2 C2 . . . end
+melody waves _ _ _ _ _ A3 . . . _ _ G3 D3 . . . _ _ A3 . . . _ _ D3 G3 A3 . . . . . . end
+melody shine A2 _ _ _ C2 A3 E2 G2 E3 . . A3 G3 E3 C3 A3 . . C2 E2 A2 . . end
+
+sequence seq1
+  start
+    melody shimmer 35
+    melody shine   44
+  end
+
+body polar 7000.    30.  polar 6.1 120. 37.e14 offset -6000. 15000. inst koto melody shared shimmer mutate after 30 mass% 62 70. 102. end
+body polar 7000.   120.  polar 6.1 210. 37.e14 offset -6000. 15000. inst koto melody shared shine mutate after 30 mass% 62 70. 102. end
+body polar 7000.   210.  polar 6.1 300. 37.e14 offset -6000. 15000. inst koto melody shared glisten mutate after 30 mass% 62 70. 102. end
+body polar 7000.   300.  polar 6.1 30.  37.e14 offset -6000. 15000. inst koto melody shared glisten mutate after 30 mass% 62 70. 102. end
+
+
+stop
+

@@ -1,0 +1,121 @@
+title Plainsong
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+maxbodies 50
+maxrocks 50
+radius 50000.
+friction .99
+gridcircles 10
+gridradii 16
+reboundmethod circle
+background square
+drawbg
+
+channel 0  piano1       0 0 
+channel 1  piano2       0 0
+channel 2  piano3      0 0
+channel 3  frenchhorn   0 69
+channel 4  vibes        0 11
+channel 5  organ        0 19
+channel 6  SynStrings   0 50
+channel 7  Crystal         0 98
+channel 8  IceRain         0 96  // synthy
+channel 9  Soundtrack         0 97  // synthy
+channel 10  piano4      0 0
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 aahs   0 52
+channel 14 oohs   0 53
+channel 15 tuba         0 58
+end_channels
+
+melody plain1 C1 D1 E1 F1 _ _ _ _ _ _ _ _ _  end
+melody plain2 _ _ _ _ G1 A2 B2 C2 _ _ _ _ _ _ _ end
+
+melody cc1 
+  _  _  _ F3 . E3 .  
+ F3 _ D3 _ D3 C3 D3 E3 F3 _ _ C3 _ . 
+ D3 _ _ G3 F3 F3 E3 D3 . . A3 . .
+ C4 . . D4 . . C4 Bb3 C4 Bb4 A4 G3 . . 
+ B4 . A4 . G3 F3 G3 F3 E3 D3 . . _ _
+end
+melody cc2 
+  _  _  _ F2  _ _
+ D2  _ _ E2 . . F2 . .  G2 _ .
+ A3 . . Bb3 . . 
+ F2 _ _ F2 _ A3 _ F2 _ _ D2 . . 
+ E2 _ A3 C3 _ _ A3 _ _ . _ _
+end
+
+melody cc2_low
+  _  _  _ F1  _ _
+ D1  _ _ E1 . . F1 . .  G0 _ .
+ A1 . . Bb1 _ _
+ F1 _ _ F1 _ A1 _ F1 _ _ D1 . . 
+ E1 _ A1 C1 _ _ A1 _ _ . _ _
+end
+
+melody cc3
+  _  _  _ F2  _ _
+ A3 . _ G2 . . F2 .  .  E2 . _
+ D2 . _ C2 . . D2 . .  E2 _ . 
+ F2 _ _ F2 _ D2 _ F2 _ _ G2 _ _ 
+ E2 .  D2 _  C2 . .  D2 _ _ . _ _
+end
+melody cc3_low
+  _  _  _ F0  _ _
+ A1 . _ G0 . . F0 .  .  E0 . _
+ D0 . _ C1 . . D1 . .  E0 _ . 
+ F0 _ _ F0 _ D1 _ F0 _ _ G0 _ _ 
+ E0 .  D0 _  C0 . .  D0 _ _ . _ _
+end
+
+melody drone_F
+F1 _ _ Bb1 . . F0 _ _ _ _ C1 . . _ _ _ _
+end
+
+melody underdrone_Gm _ _ G1 Bb1 .  _ G1 E1 D2 _ _ _ _ _ G0 Bb3 _ G1 E1 D2 _ _ . . . _  _ _ _ _ _ E2 G2 _ Bb2 G2 D2 _ _ _ end
+melody underdrone_Dm7 D1 . . _ _ _ _ _ F1 A1 _ C1 A1 D2 . . _ _ _ end
+
+body  20000.     0. 0. 0.  52.0e14  inst vibes melody shared cc1
+body  20000. 10000. 0. 0.  52.0e14  inst frenchhorn melody shared cc2_low
+body  20000. 20270. 0. 0.  52.0e14  inst tuba melody cc3_low
+
+body  20000. 30180. 0. 0.  22.0e14  inst slowstrings melody drone_F
+
+nobody  -40000. 45000. 0. 0.  22.0e14  inst vibes melody shared cc1
+nobody  -45000. 35000. 0. 0.  22.0e14  inst frenchhorn melody shared cc2_low
+
+# make an arch?
+rock -30000. -50000.   62.0e14
+rock    000. -50000.   62.0e14
+rock -30000. -45000.   62.0e14
+rock    000. -45000.   62.0e14
+rock -30000. -40000.   62.0e14
+rock    000. -40000.   62.0e14
+rock -30000. -35000.   62.0e14
+rock    000. -35000.   62.0e14
+rock    000. -30000.   62.0e14
+rock -30000. -30000.   62.0e14
+rock    000. -25000.   62.0e14
+rock -30000. -25000.   62.0e14
+rock    000. -20000.   62.0e14
+rock -30000. -20000.   62.0e14
+rock   -700. -16500.   62.0e14
+rock -29300. -16500.   62.0e14
+rock  -1700. -12500.   62.0e14
+rock -28300. -12500.   62.0e14
+rock  -2800.  -9500.   62.0e14
+rock -27200.  -9500.   62.0e14
+rock  -5000.  -7000.   62.0e14
+rock -25000.  -7000.   62.0e14
+rock  -7000.  -4500.   62.0e14
+rock -23000.  -4500.   62.0e14
+rock -10000.  -2500.   62.0e14
+rock -20000.  -2500.   62.0e14
+
+rock -15000.  -1500.   70.e14 mutate after 30 mass% 35 70. 130. end
+
+stop

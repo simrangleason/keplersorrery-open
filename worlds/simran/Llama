@@ -1,0 +1,50 @@
+Title Llama
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+maxbodies 50
+maxrocks 12
+radius 50000.
+friction .99
+gridcircles 10
+gridradii 16
+reboundmethod circle
+background clear
+background circle
+background starclusters
+drawbg
+
+channel 0  piano1       0 0 
+channel 1  piano2       0 0 
+channel 2  piano3       0 0 
+channel 3  Goblins      0 101
+channel 4  vibes        0 11
+channel 5  organ        0 19
+channel 6  SynStrings   0 50
+channel 7  pickbass     0 34
+channel 8  fretlessbass 0 35
+channel 9  OrchHit      0 55
+channel 10 celesta        0 8
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 halopad      0 94
+channel 14 BowedGlass   0 92
+channel 15 tuba         0 58
+end_channels
+
+melody gambolo     C#2 .  F2 Ab3 . .  G2 D2 .  C#2 . . _ end
+melody gambolhi     C#3 Ab3 F3 Ab3 _ _ G3 D3 _ C#3 . . _ _ end
+melody shepherd   _ _ _ end
+melody wolf        F2 Ab2 . C#1 . C#2 . . . _ _ _ end
+melody bigbadwolf Bb1 C#1 . .  D1 E1 F1 G1 Ab2 B2 . . _ _ end
+melody bopeep Ab2 Bb2 . . . _ _ _ end
+
+body polar 45000.   0.  0. 0.  34.0e14  inst halopad melody shared gambolhi mutate mass% 15 90. 113. end
+body polar 45000. 335.  0. 0.  38.0e14  inst halopad melody bopeep
+body polar  5000. 335.  0. 0.  48.0e14  inst halopad melody shared gambolhi
+body  10000. 10000.  0. 0.  48.0e14  inst BowedGlass melody bigbadwolf
+
+rock polar 48000.   45. 55.0e14  inst halopad melody bigbadwolf mutate mass% 10 95. 112. end
+rock polar 45000. 100. 55.0e14 constrain inst halopad melody wolf mutate mass% 10 85. 107. end
+rock -4800. -40000. 65.0e14 constrain inst SynStrings melody bigbadwolf

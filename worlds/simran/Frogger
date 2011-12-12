@@ -1,0 +1,120 @@
+title Foghorn Frogger!
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+maxbodies 15
+maxrocks 50
+radius 50000.
+friction .99
+gridcircles 10
+gridradii 16
+reboundmethod circle
+maxmass 67.e14
+background clear
+background square
+
+channel 0  piano1       0 0 
+channel 1  piano2       0 0
+channel 2  piano3       0 0
+channel 3  frenchhorn   0 69
+channel 4  vibes        0 11
+channel 5  organ        0 19
+channel 6  celesta      0 8
+channel 7  Crystal      0 98
+channel 8  IceRain      0 96  // synthy
+channel 9  Soundtrack   0 97  // synthy
+channel 10  bottle      0 76
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 panflute     0 75
+channel 14 choir_oohs   0 53
+channel 15 tuba         0 58
+end_channels
+
+melody run_hi G2 B3 C3 D3 E3 F#3 Ab3 B3 D3 E3 . . end
+melody run_low C0 D0 E0 F0 G0 Ab1 B1 C1 D1 E0 . . _ _  end
+melody counter_low D0 C0 . . F0 . . . E1 B1 Ab1 . . . G0 F1 C1 B1 . .  Ab1 . . .  E1 D1 C1 . . . _ _ _ _ end
+melody chord_Em_low E1 G1 B2 . . . E2 G2 . . E1 B1 . . E1 G1 . . E1 . . . _ _ _ _ end
+melody chord_Em E2 G2 B3 E3 G3 E2 B2 E2 G2 E2 . . . _ _  end
+melody chord_C C2 G2 E2 E3 G3 C3 E2 B3 E3 G3 C4 C3 E2 . . . _ _ _ end
+melody frog_low D0 G0  . . B1 G0 . . D1 B1 . . G0 . . D0 . . . _ end
+melody frog_bottle D1 C1  . . . _ _ _ . B1 . . C1 . . . _ _ D1 B1 . . . _ _ _ C1 D0 . . . _ _ end
+
+body 0000. 1000. 0. 0. 6.e14    inst organ   melody shared run_low mutate after 20 mass% 50 75. 135. end
+
+body polar 20000.  30. polar 10. 120. 10.e14  melody run_hi inst vibes
+body polar 20000.  60. polar 10. 150. 10.e14  melody run_hi inst vibes
+body polar 20000.  90. polar 10. 180. 10.e14  melody run_hi inst vibes
+body polar 20000. 120. polar 10. 210. 10.e14  melody run_hi inst vibes
+body polar 20000. 150. polar 10. 240. 10.e14  melody run_hi inst vibes
+body polar 20000. 180. polar 10. 270. 10.e14  melody run_hi inst vibes
+
+body polar 20000. 210. polar 10. 300. 10.e14 inst vibes    melody  chord_C
+body polar 20000. 240. polar 10. 330. 10.e14 inst vibes    melody  chord_C
+body polar 20000. 270. polar 10. 360. 10.e14 inst vibes    melody  chord_C
+body polar 20000. 300. polar 10. 390. 10.e14 inst pizzicato    melody  chord_Em_low
+body polar 20000. 330. polar 10. 420. 10.e14 inst Crystal    melody  chord_Em
+body polar 20000. 360. polar 10. 450. 10.e14 inst Crystal    melody  chord_Em
+
+rock 20000. 40000. 17.e14  inst organ melody shared counter_low
+rock 25000. 40000. 17.e14  inst organ   melody shared run_low
+rock 30000. 40000. 17.e14 inst organ   melody shared run_low
+rock 35000. 40000. 17.e14
+rock 40000. 40000. 17.e14 mutate after 10 mass% 50 95. 135. end  inst organ melody shared counter_low
+rock 40000. 35000. 17.e14
+rock 40000. 30000. 17.e14
+rock 40000. 25000. 17.e14
+rock 40000. 20000. 17.e14
+
+rock -20000. 40000. 17.e14  inst organ melody shared counter_low
+rock -25000. 40000. 17.e14 inst organ   melody shared run_low
+rock -30000. 40000. 17.e14 inst organ   melody shared run_low
+rock -35000. 40000. 17.e14
+rock -40000. 40000. 17.e14 mutate after 10 mass% 50 95. 135. end  inst organ melody shared counter_low
+rock -40000. 35000. 17.e14
+rock -40000. 30000. 17.e14
+rock -40000. 25000. 17.e14
+rock -40000. 20000. 17.e14
+
+rock 20000. -40000. 17.e14 inst organ melody shared counter_low
+rock 25000. -40000. 17.e14
+rock 30000. -40000. 17.e14
+rock 35000. -40000. 17.e14
+rock 40000. -40000. 17.e14 mutate after 10 mass% 50 95. 135. end inst organ melody shared counter_low
+rock 40000. -35000. 17.e14
+rock 40000. -30000. 17.e14
+rock 40000. -25000. 17.e14
+rock 40000. -20000. 17.e14
+
+rock -20000. -40000. 17.e14 inst organ melody shared counter_low
+rock -25000. -40000. 17.e14
+rock -30000. -40000. 17.e14
+rock -35000. -40000. 17.e14
+rock -40000. -40000. 17.e14 mutate after 10 mass% 50 95. 135. end inst organ melody shared counter_low
+rock -40000. -35000. 17.e14
+rock -40000. -30000. 17.e14
+rock -40000. -25000. 17.e14
+rock -40000. -20000. 17.e14
+
+# small square of rocks. center at 1000, 1000
+rock  3000.  4000. 10.e14 mutate after 30 mass% 50 70. 105. end inst pizzicato melody shared frog_low
+rock  1000.  4000. 10.e14 mutate after 30 mass% 50 70. 105. end inst pizzicato melody shared frog_low
+rock -1000.  4000. 10.e14 mutate after 30 mass% 50 70. 105. end inst pizzicato melody shared frog_low
+rock -3000.  4000. 10.e14 mutate after 30 mass% 50 70. 105. end inst pizzicato melody shared frog_low
+
+rock -3000.  2000. 10.e14 mutate after 30 mass% 50 70. 105. end inst bottle melody shared frog_bottle
+rock -3000.  0000. 10.e14 mutate after 30 mass% 50 70. 105. end inst bottle melody shared frog_bottle
+rock -3000. -2000. 10.e14 mutate after 30 mass% 50 70. 105. end inst bottle melody shared frog_bottle
+
+rock -1000. -2000. 10.e14 mutate after 30 mass% 50 70. 105. end inst panflute melody shared frog_bottle
+rock  1000. -2000. 10.e14 mutate after 30 mass% 50 70. 105. end inst panflute melody shared frog_bottle
+rock  3000. -2000. 10.e14 mutate after 30 mass% 50 70. 105. end inst panflute melody shared frog_bottle
+
+rock  3000. -2000. 10.e14 mutate after 30 mass% 50 70. 105. end inst pizzicato melody shared frog_low
+rock  3000.  0000. 10.e14 mutate after 30 mass% 50 70. 105. end inst pizzicato melody shared frog_low
+rock  3000.  2000. 10.e14 mutate after 30 mass% 50 70. 105. end inst pizzicato melody shared frog_low
+
+
+stop
+

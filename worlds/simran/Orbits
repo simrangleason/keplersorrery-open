@@ -1,0 +1,52 @@
+Title Orbits
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+maxbodies 50
+maxrocks 6
+radius 50000.
+friction .99
+gridcircles 10
+gridradii 16
+reboundmethod circle
+background clear
+background circle
+maxmass 38.e14
+
+melody clash1 
+   D1  E1 D#1 F1  C1
+    _ _ _ _ E1 _ E2 _ _ F2 _ _ _ _ _ _ F3 A3 C3 . . . _ _ _ _ _ 
+end
+melody clash2 G2  E2 C3  C2 E2 C1 E1 _ _ G1 Bb2 D2 _ _ _ _ _ end
+melody clash3 Bb3 G3 E3  D3  G3 . .  _ _ _ _ _ _ _ _ _ _ _ _ F3 _ _ _ Bb3 Bb2 _ _ _ _ end
+melody clash4 F3  E3 G3  Ab3 . . .  _ _ _ _ _ _ _ _ _ _ _ C3 . . . _ E3 . . .  _ _ _ _ _ end
+
+melody underdrone_Gm 
+   _ _ G1 Bb1 .  _ G1 E1 D2 _ _ _ _ _ 
+   G0 Bb3 _ G1 E1 D2 _ _ . . . _ 
+    _ _ _ _ _ E2 G2 _ Bb2 G2 D2 _ _ _
+end
+melody underdrone_Dm7 D1 . . _ _ _ _ _ F1 A1 _ C1 A1 D2 . . _ _ _ end
+
+Rock polar 0. 0.   18.0e14  channel 11 melody underdrone_Gm
+nobody polar 45000. 335.  0000.   0.  38.0e14  channel 11 melody underdrone_Dm7
+
+body  polar 35000. 0.     polar 10. 90.  4.0e14 channel 0 melody clash1
+body  polar 35000. 30.    polar 10. 120.  4.0e14 channel 1 melody clash1
+body  polar 35000. 60.    polar 10. 150.  4.0e14 channel 5 melody clash1
+body  polar 35000. 90.    polar 10. 180.  4.0e14 channel 5 melody clash4
+
+body  polar 35000. 120.   polar 10. 210.  4.0e14 channel 2 melody clash2
+body  polar 35000. 150.   polar 10. 240.  4.0e14 channel 3 melody clash4
+body  polar 35000. 180.   polar 10. 270.  4.0e14 channel 1 melody clash2
+body  polar 35000. 210.   polar 10. 300.  4.0e14 channel 11 melody clash3
+
+body  polar 35000. 240.   polar 10. 330.  4.0e14 channel 0 melody clash3
+body  polar 35000. 270.   polar 10. 360.  4.0e14 channel 2 melody clash3
+body  polar 35000. 300.   polar 10. 390.  4.0e14 channel 0 melody underdrone_Gm
+body  polar 35000. 330.   polar 10. 420.  4.0e14 channel 5 melody underdrone_Dm7
+
+
+stop
+

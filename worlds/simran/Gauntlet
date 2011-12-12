@@ -1,0 +1,68 @@
+title Run the gauntlet
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+maxbodies 50
+maxrocks 50
+radius 50000.
+friction .99
+gridcircles 10
+gridradii 16
+reboundmethod circle
+maxmass 50.e14
+background clear
+background square
+
+channel 0  piano1       0 0 
+channel 1  bird         0 123
+channel 2  piano3       0 0
+channel 3  SeaShore     0 122
+channel 4  vibes        0 11
+channel 5  organ        0 19
+channel 6  Taiko        0 116
+channel 7  bird         0 123
+channel 8  IceRain      0 96 
+channel 9  ReverseCymbal   0 119
+channel 10  koto        0 107
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 FretNoise     0 120
+channel 14 Telephone   0 124
+channel 15 Helocopter         0 125
+end_channels
+
+
+melody boom C1 G0 D0 G0 F0 A0 C0 end
+melody chirp E3 . . F3 _ _ A3 . . C3 E3 . . . _ _ _ end
+melody walk  D2 C2 E2 D2 C2 A1 F1 E1 C2 G1 E2 F2 D2 C2 _ _ F3 C3 D3 G2 A3 C3 E2 G2 C2 A2 . .  end
+melody wok  D2 C2 E2 D2 C2 A1 F1 E1 C2 G1 E2 F2 D2 C2 _ _ F3 C3 D3 G2 A3 C3 E2 G2 C2 A2 . .  end
+melody ring  . . _ _  . . .  . A2 . . . _ _ _ end
+melody waves  . . _ _ . . . G1 . . . _ _ _ end
+
+body 0000. 50000. 0. -45. 7.e14    inst koto   melody shared walk mutate after 40 mass% 50 75. 135. end
+body 0000. -50000. 0. 0. 7.e14    inst koto   melody shared wok mutate after 20 mass% 50 75. 135. end
+
+rock -10000.  32000. 45.0000001e14  inst koto melody shared walk
+rock -10000.  20500. 45.e14  inst bird melody shared chirp
+rock -10000.  10000. 45.e14  inst koto melody shared chirp
+rock -10000.   0000. 45.e14  inst bird melody shared chirp
+rock -10000. -10000. 45.e14  inst koto  melody shared walk
+rock -10000. -20000. 45.e14  inst SweepPad melody chirp
+rock -10000. -29000. 45.e14  inst bird melody chirp
+rock  -9500. -38000. 45.0000001e14  inst ReverseCymbal melody chirp
+rock  -9000. -45000. 50.e14  inst Taiko melody shared boom
+
+rock 10000.  32000. 45.e14  inst BowedGlass melody chirp
+rock 10000.  20500. 45.e14  inst FretNoise melody chirp
+rock 10000.  10000. 45.e14  inst koto melody shared wok
+rock 10000.   0000. 45.e14  inst FretNoise melody chirp
+rock 10000. -10000. 45.e14  inst Helicopter melody boom
+rock 10000. -20000. 45.e14  inst koto melody shared wok
+rock 10000. -29000. 45.e14  inst SeaShore  melody waves
+rock  9500. -38000. 45.e14  inst ReverseCymbal melody chirp
+rock  9000. -45000. 50.00001e14  inst Taiko melody shared boom
+
+
+stop
+

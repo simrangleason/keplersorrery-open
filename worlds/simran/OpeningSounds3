@@ -1,0 +1,71 @@
+Title OpeningSounds
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+@notes This one was created to make the opening sound for the
+@notes Kepler's Orrery videos I put on youtube. 
+
+maxbodies 50
+maxrocks 50
+canvas 650 650
+radius 50000.
+friction .99
+gridcircles 10
+gridradii 16
+reboundmethod square
+background clear
+background square
+drawbg
+
+channel 0  piano1       0 0 
+channel 1  IceRain         0 96  // synthy
+channel 2  Soundtrack         0 97  // synthy
+channel 3  frenchhorn   0 69
+channel 4  vibes        0 11
+channel 5  organ        0 19
+channel 6  SynStrings   0 50
+channel 7  Crystal         0 98  // short sharp
+channel 8  panflute     0 75
+channel 9  OrchHit      0 55
+channel 10 celesta      0 8
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 choir_aahs   0 52
+channel 14 choir_oohs   0 53
+channel 15 tuba         0 58
+end_channels
+
+
+melody tooba    _ A0 _ C1 G0 D1 C1 . . _ _ _ . . _ _ _ _ _ _ _ _ end
+melody tingle   _ _ _ Eb3   A3  D3 C3 Ab3 D3 . G3 B4 C4 _ _ . . . _ _ _ end
+melody tingle2   _ _ _ _  . A3  B3  C3 Db3 F3 Ab3 D3 . G3 B4 C4 _ _ . . . _ _ _ end
+melody swell    Eb1 . E1  B1 G2 . C1 _ _ . . _ . _ . _ _ _ _ _ _ end
+
+body  -40000.  -30000.   0. -20. 30.e14 inst slowstrings melody shared swell
+body  -15000.  -10000.   0. -20. 30.e14 inst tuba melody shared tooba
+body   15000.  -0000.   0. -20. 30.e14 inst Crystal melody shared tingle
+body   40000.   10000.   0. -20. 30.e14 inst vibes melody tingle
+
+
+rock -40000. -40000. 64e14 inst tuba melody shared tooba
+rock -15000. -40000. 64e14 inst slowstrings melody shared swell
+rock -15000. -46000. 64e14 inst piano melody shared tingle
+rock  15000. -40000. 64e14 inst IceRain melody shared tingle
+rock  15000. -46000. 64e14 inst vibes melody shared tingle2
+rock  40000. -40000. 64e14 inst slowstrings melody shared swell
+
+
+rock -40000. 40000. 64e14 inst vibes melody shared tingle2
+
+rock -15000. 40000. 64e14 inst piano melody shared tingle
+rock -15000. 46000. 64e14 inst piano melody shared tingle2
+
+rock  15000. 40000. 64e14 inst vibes melody shared tingle
+rock  15000. 46000. 64e14 inst vibes melody shared tingle2
+
+rock  40000. 40000. 64e14 inst slowstrings melody shared swell
+
+
+
+
+stop

@@ -1,0 +1,105 @@
+title CIRQ
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+maxbodies 50
+maxrocks 50
+radius 50000.
+friction .995
+gridcircles 10
+gridradii 16
+reboundmethod circle
+maxmass 57.e14
+background clear
+background square
+
+channel 0  piano1       0 0 
+channel 1  piano2       0 0
+channel 2  piano3       0 0
+channel 3  frenchhorn   0 69
+channel 4  vibes        0 11
+channel 5  organ        0 19
+channel 6  koto      0 107
+channel 7  Crystal      0 98
+channel 8  IceRain      0 96  // synthy
+channel 9  Soundtrack   0 97  // synthy
+channel 10  bottle      0 76
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 Taiko     0 75
+channel 14 Fiddle   0 110
+channel 15 ReedOrgan         1 4
+end_channels
+
+melody run_hi G2 A3 . . B3 D3 . . E3 . . .   B2 D2 E2 . . . Ab2 . . . _ _ _ end
+melody run_med  _ _ D1 E1  G1 . . A2 B2 . .  _ D2 E1 . . _ _  end
+melody run_low  _ _ D0 E0  G0 . . A1 B1 . .  D1 E0 . . _ _  end
+melody counter_low D1  E1 B1 A1 G0 F1 C1 B1 A1 E1 D1  end
+melody counter_med D2  E2 B2 A2 G1 F2 C2 B2 A2 E2 D2  end
+melody chord_Em_low E1 G0 B1 E2 G1 E1 B1 E1 G0 E1 . . . end
+melody chord_Em E2 G2 B2 E2 G2 _ _ E2 B2 E2 G2 E2 . . . _ _  end
+melody chord_D D2 A2 F2 A3 D3 _ _ B3 . . D3 A3 D4 D3 . . . _ _ _ end
+melody frog_low D0 G0  B1 G0 D1 B1 G0 D0 end
+melody frog_bottle D1 G1  B2 G1 D2 B1 G1 D0 end
+
+body 0000. 1000. 0. 0. 28.e14    inst ReedOrgan   melody shared run_med mutate after 20 mass% 50 75. 135. end
+
+body polar 20000.  30. polar 5.10 120. 12.e14  melody shared run_hi inst vibes
+body polar 20000.  60. polar 5.10 150. 12.e14  melody shared run_hi inst koto
+body polar 20000.  90. polar 5.10 180. 12.e14  melody shared run_hi inst vibes
+body polar 20000. 120. polar 5.10 210. 12.e14  melody shared run_hi inst koto
+body polar 20000. 150. polar 5.10 240. 12.e14  melody shared run_hi inst piano1
+body polar 20000. 180. polar 5.10 270. 12.e14  melody shared run_hi inst koto
+
+body polar 20000. 210. polar 5.10 300. 12.e14 inst koto    melody  shared chord_D
+body polar 20000. 240. polar 5.10 330. 12.e14 inst koto    melody shared   chord_D
+body polar 20000. 270. polar 5.10 360. 12.e14 inst koto    melody  shared chord_D
+body polar 20000. 300. polar 5.10 390. 12.e14 inst koto    melody  shared chord_Em_low
+body polar 20000. 330. polar 5.10 420. 12.e14 inst koto    melody  shared chord_Em
+body polar 20000. 360. polar 5.10 450. 12.e14 inst koto    melody  shared chord_Em
+
+rock 20000. 40000. 17.e14  inst ReedOrgan melody shared counter_med
+rock 25000. 40000. 17.e14  inst organ   melody shared run_low
+rock 30000. 40000. 17.e14 inst organ   melody shared run_low
+rock 35000. 40000. 17.e14
+rock 40000. 40000. 17.e14 mutate after 10 mass% 50 95. 135. end  inst organ melody shared counter_low
+rock 40000. 35000. 17.e14
+rock 40000. 30000. 17.e14
+rock 40000. 25000. 17.e14
+rock 40000. 20000. 17.e14
+
+rock -20000. 40000. 17.e14  inst organ melody shared counter_low
+rock -25000. 40000. 17.e14 inst organ   melody shared run_low
+rock -30000. 40000. 17.e14 inst organ   melody shared run_low
+rock -35000. 40000. 17.e14
+rock -40000. 40000. 17.e14 mutate after 10 mass% 50 95. 135. end  inst organ melody shared counter_low
+rock -40000. 35000. 17.e14
+rock -40000. 30000. 17.e14
+rock -40000. 25000. 17.e14
+rock -40000. 20000. 17.e14
+
+rock 20000. -40000. 17.e14 inst organ melody shared counter_low
+rock 25000. -40000. 17.e14
+rock 30000. -40000. 17.e14
+rock 35000. -40000. 17.e14
+rock 40000. -40000. 17.e14 mutate after 10 mass% 50 95. 135. end inst organ melody shared counter_low
+rock 40000. -35000. 17.e14
+rock 40000. -30000. 17.e14
+rock 40000. -25000. 17.e14
+rock 40000. -20000. 17.e14
+
+rock -20000. -40000. 17.e14 inst organ melody shared counter_low
+rock -25000. -40000. 17.e14
+rock -30000. -40000. 17.e14
+rock -35000. -40000. 17.e14
+rock -40000. -40000. 17.e14 mutate after 10 mass% 50 95. 135. end inst organ melody shared counter_low
+rock -40000. -35000. 17.e14
+rock -40000. -30000. 17.e14
+rock -40000. -25000. 17.e14
+rock -40000. -20000. 17.e14
+
+
+
+stop
+

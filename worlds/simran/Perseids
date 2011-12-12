@@ -1,0 +1,82 @@
+Title Perseids...
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+maxbodies 50
+maxrocks 12
+radius 50000.
+friction .99
+gridcircles 10
+gridradii 16
+maxmass 56.e14
+trails 15
+reboundmethod square
+background clear
+background square
+drawbg
+
+channel 0  piano1       0 0 
+channel 1  panflute       0 75
+channel 2  Fantasia     0 88 
+channel 3  Goblins      0 101
+channel 4  vibes        0 11
+channel 5  bottle        0 76
+channel 6  SynStrings   0 50
+channel 7  Soundtrack     0 97
+channel 8  fretlessbass 0 35
+channel 9  IceRain      0 96
+channel 10 celesta        0 8
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 Kalimba      0 108
+channel 14 BowedGlass   0 92
+channel 15 tuba         0 58
+end_channels
+
+melody rain C3 E3 F3 G3 F3 G3 F3 G3 A2 G2 A3 . . . _ _ _ _ end 
+melody rain2 C2 E2 F2 G2 F2 G1 F1 G1 A1 G1 A1 . . . _ _ _ _ end 
+melody cloud _ _ A1 . . . _ _ _ _  _ . . E2 . . . _ _ _ _  _ . .  F2 . . . _ _ _ _  _ .  D1 _ _ . A1 . . . _ _ . F1 . _ . . E2 . _ _ . . _ _ _ _ end
+melody thunder C1 _ _ . . D1 . . _ _ _ end
+
+body  -45000.  49000.  6. -10.  4.0e14  inst slowstrings melody thunder mutate mass% 15 90. 107. end
+body  -38000.  46000.  6. -10.  4.0e14  inst panflute melody  rain2
+body  -30000.  47000.  5. -10.  4.0e14  inst panflute melody  rain2
+body  -26000.  46000.  5. -10.  4.0e14  inst panflute melody  rain2
+body  -16000.  49000.  4. -10.  4.0e14  inst panflute melody  rain2
+body   -8000.  50000.  4. -10.  4.0e14  inst panflute melody  rain2
+body   -1000.  44000.  3. -10.  4.0e14  inst panflute melody rain2
+body   8000.   48000.  3. -10.  4.0e14  inst panflute melody rain2
+body   18000.  46000.  2. -10.  4.0e14  inst piano1 melody shared rain2
+body   22000.  49000.  2. -10.  4.0e14  inst piano1 melody shared rain2
+body   31000.  45000.  1. -10.  4.0e14  inst piano1 melody shared rain2
+body   38000.  44000.  1. -10.  4.0e14  inst piano1 melody shared rain2
+body   46000.  47000.  0. -10.  4.0e14  inst piano1 melody shared rain2
+body   50000.  49500.  0. -10.  4.0e14  inst piano1 melody shared rain2
+
+body  -37000.  25000.  4. -10.  4.0e14  inst vibes melody  rain
+body  -32000.  22000.  4. -10.  4.0e14  inst vibes melody  rain
+body  -26000.  25000.  3. -10.  4.0e14  inst vibes melody  rain
+body  -14000.  29000.  3. -10.  4.0e14  inst vibes melody  rain
+body   -9000.  20000.  2. -10.  4.0e14  inst vibes melody  rain
+body    -500.  24000.  2. -10.  4.0e14  inst vibes melody  rain
+body   8600.   27000.  2. -10.  4.0e14  inst vibes melody  rain
+body   19000.  26000.  1. -10.  4.0e14  inst vibes melody  rain
+body   24000.  29000.  1. -10.  4.0e14  inst vibes melody  rain
+body   31000.  23000.  1. -10.  4.0e14  inst vibes melody  rain
+body   37000.  25000.  0. -10.  4.0e14  inst vibes melody  rain
+body   46000.  27000.  0. -10.  4.0e14  inst vibes melody  rain
+body   49500.  29500.  0. -10.  4.0e14  inst vibes melody  rain
+
+rock  11500.  -50500. 35.0e14  mutate mass% 10 85. 107. end
+rock  14000.  -49000. 45.0e14 inst Soundtrack melody  cloud mutate mass% 10 85. 107. end
+rock  17000.  -47000. 48.0e14 inst Soundtrack melody shared cloud mutate mass% 10 85. 107. end
+rock  20000.  -44000. 48.0e14 inst Soundtrack melody shared cloud mutate mass% 10 85. 107. end
+rock  24000.  -42000. 50.0e14 inst Soundtrack melody  cloud mutate mass% 10 95. 112. end
+rock  28000.  -39000. 50.0e14 inst Soundtrack melody shared cloud mutate mass% 10 85. 107. end
+rock  34200.  -37000. 50.0e14 inst SynStrings melody shared cloud
+rock  39200.  -35000. 48.0e14 inst SynStrings melody shared cloud
+rock  44200.  -34000. 45.0e14 inst SynStrings melody shared cloud
+rock  47200.  -33500. 45.0e14 inst SynStrings melody shared cloud
+
+rock  50800.  -33000. 35.0e14  

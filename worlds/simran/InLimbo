@@ -1,0 +1,100 @@
+title In Limbo...
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+@notes  Sat down with my friend Limbo and tried to figure out 
+@notes  how to make a world with a big grand chord at the start. 
+@notes  Instead we got one where the bodies don't hit the rocks
+@notes  at all, at least not until the rounding errors kick in. 
+
+maxbodies 50
+maxrocks 16
+radius 50000.
+friction 1.0
+gridcircles 10
+gridradii 16
+reboundmethod circle
+maxmass 42.0e14
+baseradius 315.
+background clear
+background circle
+
+channel 0  piano1       0 0 
+channel 1  piano2       0 0
+channel 2  piano3      0 0
+channel 3  frenchhorn   0 69
+channel 4  vibes        0 11
+channel 5  organ        0 19
+channel 6  SynStrings   0 50
+channel 7  Crystal         0 98
+channel 8  IceRain         0 96  // synthy
+channel 9  Soundtrack         0 97  // synthy
+channel 10  piano4      0 0
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 choir_aahs   0 52
+channel 14 choir_oohs   0 53
+channel 15 tuba         0 58
+end_channels
+
+melody clash1
+   _ D1  . . G1 F1 .   C1 . . .
+    _ _ _ _ . _ . _ _ F2 . . . _ _ _ _ _ _ F3 . A3 C3 . . . _ _ _ _ _ 
+end
+melody clash2
+   _ G2  Bb2 . C3  Bb2 . 
+    . C1 . _ _ G1 Bb2 D2 _ _ _ _ _ 
+end
+melody clash3
+    _ Bb0 F0 . G0  D0  G0 . . . 
+  _  _ _ _ _ _ _ _ _ _ _ _ _ F0 . . . _ _ _ Bb0 Bb0 . . _ _ _ _ 
+end
+melody clash4
+     _  Bb2 . A2 G3  . A3 . . .
+     _ _ _ _ _ _ _ _ _ _ _ C3 . . .  . . . .  _ _ _ _ _ 
+end
+
+melody GmChord1 G0 . . Bb0 D0 . . . _ _ _ _ . _ _  end
+melody GmChord2 Bb1 . . D1 G1 . .  _ _ _ _ . _ end
+melody GmChord3 D0 . . G1 Bb0 . . . . _ _ _ _ _ end
+melody GmChord4 G1 . . Bb1 D1 . . . _ _ _ _ end
+
+
+
+
+melody underdrone_Gm
+    _ _ G1 Bb1 .  _ G1 . D2 . . .     _ _ _ _ _ 
+   G0 Bb0 . _ G1 . D2 _ _ . . . 
+   _  _ _ _ _ _ . G2 _ Bb2 G2 D2 . . _ _ _
+end
+melody underdrone_Dm7 D1 . . _ _ _ _ _ F1 . .  A1 _ C1 A1 D2 . .  _ _ _ end
+
+norock   polar     0.   0.  22.0e14 inst slowstrings melody underdrone_Gm 
+
+body  polar 35000. 0.     polar 29.  90.  5.0e14 inst piano1 melody shared clash1 mutate mass% 20 85. 95 end
+body  polar 35000. 30.    polar 29. 120.  4.0e14 inst piano2 melody shared clash1
+body  polar 35000. 60.    polar 29. 150.  4.0e14 inst vibes melody shared clash1
+body  polar 35000. 90.    polar 29. 180.  4.0e14 inst vibes melody clash4
+
+body  polar 35000. 120.   polar 29. 210.  5.0e14 inst piano3 melody shared clash2 mutate mass% 10 105. 110 end
+body  polar 35000. 150.   polar 29. 240.  4.0e14 inst pizzicato melody shared clash4
+body  polar 35000. 180.   polar 29. 270.  4.0e14 inst pizzicato melody shared clash2
+body  polar 35000. 210.   polar 29. 300.  4.0e14 inst IceRain  melody clash3
+
+body  polar 35000. 240.   polar 29. 330.  5.0e14 inst pizzicato melody shared clash3
+body  polar 35000. 270.   polar 29. 360.  4.0e14 inst pizzicato melody shared clash3
+body  polar 35000. 300.   polar 29. 390.  4.0e14 inst piano1 melody underdrone_Gm
+body  polar 35000. 330.   polar 29. 420.  4.0e14 inst IceRain melody underdrone_Dm7
+
+rock polar 40000.  45. 16.0e14 inst organ melody shared GmChord1
+rock polar 40000. 135. 16.0e14 inst organ melody shared GmChord2
+rock polar 40000. 225. 16.0e14 inst organ melody shared GmChord3
+rock polar 40000. 315. 16.0e14 inst organ melody shared GmChord4
+
+rock polar 20000. 90.  6.0e14 inst IceRain melody shared GmChord1 mutate mass% 25 80. 105. end
+rock polar 20000. 180. 6.0e14 inst IceRain melody shared GmChord2
+rock polar 20000. 270. 6.0e14 inst IceRain melody shared GmChord3 mutate mass% 22 90. 125. end
+rock polar 20000. 360. 6.0e14 inst IceRain melody shared GmChord4
+
+stop
+

@@ -1,0 +1,101 @@
+Title Ringworld
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+maxbodies 50 << the moving spheres
+maxrocks 50 << the square items which don't move
+
+// the default radius of the universe
+radius 50000.
+
+friction .995
+gridcircles 10
+gridradii 16
+maxmass 20.e14
+reboundmethod circle	<< Circle, square, torrus, none, circle with bounceback bug (which can make items stick on edge of world) fixed
+						<< but Simran finds the bug actually charming so doesn't use the fixed version.
+						<< This defines the edge of the universe
+background clear 		<< each background method executes a drawing routine
+background circle
+drawbg					<< draws the backgrounds
+
+channel 0  piano1       0 0 		<< name is arbitrary, then bank number (0 is default), then patch # (first five are pianos)
+channel 1  panflute       0 75		<< 
+channel 2  Fantasia     0 88 
+channel 3  Goblins      0 101
+channel 4  vibes        0 11
+channel 5  bottle        0 76
+channel 6  SynStrings   0 50
+channel 7  Soundtrack     0 97
+channel 8  fretlessbass 0 35
+channel 9  IceRain      0 96
+channel 10 celesta        0 8
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 Kalimba      0 108
+channel 14 BowedGlass   0 92
+channel 15 tuba         0 58
+end_channels
+
+// C3 is middle C, D1 is 2 octaved below middle C. A#4 is a sharp 1 octave above middle C
+// flats are lower case b: Bb3 is B flat one note below middle C
+// if body hits a rock
+// in melody, only three notes are active at a time (this is abitrary).
+// A dot is a rest which is treated like a note (so turns off the oldest note).
+// Underscore does nothing - doesn't shut off oldest note. No change to notes playing. Adds sparseness.
+// end means end of melody, from which point it wraps around.
+melody ring A1 E2 F2 D1 A1 F1 . . E2 _ _ . . end	
+melody thunder E1 _ _ . . D1 . . _ _ _ end
+melody ships E2 _ _ . . D2 . . _ _ _ end
+
+// Three bodies are defined
+// position and velocity
+// Here three at radius 2200, close to center
+// Velocities here are in polar co-ords
+// Here position of 1st body is 73 and velocity is +90 = 163 so tangent to the circle formed by the bodies
+// 
+body  polar 2200.  73. polar 4. 163. 6.0e14  inst BowedGlass melody ships mutate mass% 15 90. 107. end
+body  polar 2200. 193. polar 4. 283. 6.0e14  inst BowedGlass melody ships mutate mass% 15 90. 107. end
+body  polar 2200. 313. polar 4. 403. 6.0e14  inst BowedGlass melody ships mutate mass% 15 90. 107. end
+
+// These three bodies are commented out
+#body  polar 2200.  60. polar 4. 150. 6.0e14  inst BowedGlass melody ships mutate mass% 15 90. 107. end
+#body  polar 2200. 180. polar 4. 270. 6.0e14  inst BowedGlass melody ships mutate mass% 15 90. 107. end
+#body  polar 2200. 300. polar 4. 390. 6.0e14  inst BowedGlass melody ships mutate mass% 15 90. 107. end
+
+// rock has position and mass
+// position in polar or cartesion co-ords (R and theta)
+// then mass 12E14
+// then instrument declaration, here all are Soundtracks.
+// melody is an iterator. All bodies share the one iterator.
+// here all melodies are independent. To share them it would be "melody shared ring"
+// So if three different rocks are hit they each play A1
+// mutate tells what do do with collision: 10% chance mass will change by 85-107 percent
+// other than mass, velocity and distance can mutate: see world Radar
+@ black hole mutator consumes the mass of the hitter
+rock  polar 30000.    0.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.   15.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 80. 107. end
+rock  polar 30000.   30.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.   45.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.   60.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 80. 107. end
+rock  polar 30000.   75.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.   90.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.  105.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 80. 107. end
+rock  polar 30000.  120.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.  135.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 80. 107. end
+rock  polar 30000.  150.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.  165.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 80. 107. end
+rock  polar 30000.  180.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.  195.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.  210.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 80. 107. end
+rock  polar 30000.  225.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.  240.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.  255.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.  270.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 80. 107. end
+rock  polar 30000.  285.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.  300.  12.0e14 inst Soundtrack melody  ring mutate mass% 20 85. 107. end
+rock  polar 30000.  315.  12.0e14 inst Soundtrack melody  ring mutate mass% 20 80. 107. end
+rock  polar 30000.  330.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+rock  polar 30000.  345.  12.0e14 inst Soundtrack melody  ring mutate mass% 10 85. 107. end
+

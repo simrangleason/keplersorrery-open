@@ -1,0 +1,86 @@
+title Changing of the Guard
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+maxbodies 50
+maxrocks 6
+radius 50000.
+friction .999
+gridcircles 10
+gridradii 16
+reboundmethod square
+maxmass 38.0e14
+minmass 14.0e14
+background clear
+background square
+dt 35
+
+channel 0  piano1       0 0 
+channel 1  piano2       0 0
+channel 2  piano3      0 0
+channel 3  frenchhorn   0 69
+channel 4  vibes        0 11
+channel 5  organ        0 19
+channel 6  SynStrings   0 50
+channel 7  Crystal         0 98
+channel 8  IceRain         0 96  // synthy
+channel 9  Soundtrack         0 97  // synthy
+channel 10  piano4      0 0
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 choir_aahs   0 52
+channel 14 choir_oohs   0 53
+channel 15 tuba         0 58
+end_channels
+
+# key: Bbm:  Bb C Db Eb F Gb Ab
+#        i7:  Bb Db F Ab
+#       iio:  C  Eb Gb m7:Bb
+#       III:  Db F Ab
+#        iv:  Eb Gb Bb
+#         v:  F  Ab C
+#       VI7:  Gb Bb Db F
+#       VII:  Ab C Eb    M7:Gb
+
+melody one_minor7_lo Bb2 _   Db1 .   F2  _   F1 .   Ab2 _  Db2 _   .   .   Bb1 .   Bb2  .   Ab2 _   Ab1 .   .  end
+melody one_minor7_hi Bb2 .   Db3 _   F2  _   F3 _   Ab3 _  Db3 _   .   .   Bb3 _   Bb2  _   Db3 _   Ab3 .   .  end
+melody three_maj_lo  Db1 _   F0  .   Db0 .   F1 .   Db1 _  F0  _   Ab1 _   F1  _   Ab0  _   F1  _   Db1 Ab0 .  end
+melody three_maj_hi  F3  _   Db3 _   Ab3 _   F2 _   Db3 _  F2  _   Ab2 _   F3  _   Ab3  _   F2  _   Db2 Ab2 .  end
+
+melody two_dim7_lo  C1  _   _   Eb1 Bb1 _   _  Eb1 Gb1 _   _  Eb1 C1  _   _   .   .    .   C1  Bb0 Gb1 _   end 
+melody two_dim7_hi  C3  _   _   Bb4 Eb2 _   _  Bb3 Eb3 _   _  Gb3 Eb2 _   _   C3  Bb2  Gb2 .   .   .   .   end 
+
+melody four_lo       _   Eb1 _   Gb1 .   Bb1 _  Bb2 .   Gb2 .  Eb2 .   Bb1 _   Bb0 _   Gb2  .   Eb2 .   Eb1 end
+melody four_hi       _   Eb2 _   Gb2 _   Bb3 _  Bb2 _   Gb3 _  Eb3 .   Bb3 _   Bb2 _   Gb2  _   Eb3 _   Eb2 end
+melody six_7_lo      _   Gb0 _   Bb0 _   Db0 _  Db1 _   Db1 .  Gb1 _   Bb1 .   Db1 .   Bb1  .   Gb1 .   Bb1 end
+melody six_7_hi      _   Gb3 _   Bb2 _   Db1 _  Db2 _   Db3 .  Gb2 _   Bb3 _   Db3 _   Bb3  _   Gb2 _   Bb1 end
+
+melody out_lo G0 . A1 . . _ _ _ _ G1 E1 . . . end
+melody out_hi E3 B3 _ _ . . G2 . . . E2 . . end
+melody rest .  .  .  end
+
+body    -30000.   40000.  -8.   0.  22.0e14 inst slowstrings melody one_minor7_lo
+body    -30000.   30000.  -8.   0.  22.0e14 inst slowstrings melody one_minor7_lo
+body    -30000.   20000.  -8.   0.  22.0e14 inst pizzicato   melody one_minor7_hi
+body    -30000.   10000.  -8.   0.  22.0e14 inst pizzicato   melody one_minor7_hi
+body    -30000.    0000.  -8.   0.  22.0e14 inst tuba        melody two_dim7_lo
+body    -30000.  -10000.  -8.   0.  22.0e14 inst slowstrings melody four_lo
+body    -30000.  -20000.  -8.   0.  22.0e14 inst Crystal     melody four_hi
+body    -30000.  -30000.  -8.   0.  22.0e14 inst SynStrings  melody four_lo
+body    -30000.  -40000.  -8.   0.  22.0e14 inst piano1      melody four_hi
+
+body     30000.   40000.   8.   0.  22.0e14 inst SynStrings  melody three_maj_lo
+body     30000.   30000.   8.   0.  22.0e14 inst vibes       melody three_maj_hi
+body     30000.   20000.   8.   0.  22.0e14 inst Crystal     melody three_maj_hi
+body     30000.   10000.   8.   0.  22.0e14 inst IceRain     melody three_maj_lo
+body     30000.    0000.   8.   0.  22.0e14 inst vibes       melody two_dim7_hi
+body     30000.  -10000.   8.   0.  22.0e14 inst slowstrings melody six_7_lo
+body     30000.  -20000.   8.   0.  22.0e14 inst vibes       melody six_7_hi
+body     30000.  -30000.   8.   0.  22.0e14 inst piano1      melody six_7_hi
+body     30000.  -40000.   8.   0.  22.0e14 inst Crystal     melody six_7_lo
+
+rock     0       50000.   44.0e14  inst piano1 melody out_hi
+rock     0      -50000.   44.0e14  inst piano1 melody out_lo
+
+stop
+

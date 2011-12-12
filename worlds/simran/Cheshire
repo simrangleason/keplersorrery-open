@@ -1,0 +1,90 @@
+title Cheshire...
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+@notes one of a series of worlds inspired by the notorious
+@notes and elusive Belinda Select.
+maxbodies 50
+maxrocks 50
+radius 50000.
+friction .995
+gridcircles 10
+gridradii 16
+reboundmethod circle
+maxmass 39.e14
+background clear
+background starclusters
+background starclusters
+
+channel 0  piano1       0 0
+channel 1  BowedGlass         0 92
+channel 2  piano2       0 0
+channel 3  SeaShore     0 122
+channel 4  vibes        0 11
+channel 5  organ        0 19
+channel 6  Taiko        0 116
+channel 7  SweepPad        0 95
+channel 8  IceRain      0 96
+channel 9  ReverseCymbal   0 119
+channel 9 slowstrings2  0 49
+channel 10  koto        0 107
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 FretNoise     0 120
+channel 14 tuba   0 58
+channel 15 SoundTrack         0 97
+end_channels
+
+
+melody eye1 D2 C2 . D2 C2 . . . _ _ _  C3 E2 D2 . . E2 D2 C2 . . D3 D2 E2 end
+melody eye2 A2 G2 . A2 G2 . . . _ _ _ G2 A3 G2 G2 A3 . . . . A3 G3 A3 G2 A2 . . . . end
+melody face_lo _ _ _ _ _ E0 A1 E1 . . _ _ A1 C1 C1 E2 D2 C2 . . . end
+melody face_hi _ _ _ _ _ _ _ _ E3 A2 E2 . . _ _ A3 C3 C2 E3 D2 C3  . . . _ _ _ _ G3 F3 E3 D3 C3 B3 A3 G2 . . . end
+
+melody grin_lo _ _ _ _ _ A0 _ _ . _ _ G0 D0 . . _ _ _ A1 _ _  _ _  D0 G0 A0 _ _ . . . . . end
+melody grin_med G1 _ . . .  _ _ _ A1 _ _ . _ _ G1 D1 . . _ _ _ A1 _ _  _ _  D1 G1 A1 _ _ . . . . . end
+melody grin_hi D2 . . . _ _ _ A1 . . . _ _ G2 D2 . . . _ _ A2 . . . _ _  D2 G2 A2 . . . . . . end
+
+
+rock polar 30000. 220.  5.e14 offset -2000. -7000. mutate mass% 75 65. 90. blackhole 30 end melody shared grin_hi inst IceRain
+rock polar 30000. 230. 10.e14 offset -2000. -7000. mutate mass% 75 65. 90. blackhole 30  end melody shared grin_hi inst IceRain
+rock polar 30000. 240. 15.e14 offset -2000. -7000. mutate mass% 75 65. 90. end melody shared grin_hi inst BowedGlass
+rock polar 30000. 250. 20.e14 offset -2000. -7000. mutate mass% 75 65. 90. end melody shared grin_lo inst tuba
+rock polar 30000. 260. 25.e14 offset -2000. -7000. mutate mass% 75 65. 90. blackhole 30 end melody shared grin_med inst slowstrings
+rock polar 30000. 270. 28.e14 offset -2000. -7000. mutate mass% 75 65. 90. blackhole 30 end melody shared grin_med inst slowstrings
+rock polar 30000. 280. 25.e14 offset -2000. -7000. mutate mass% 75 65. 90. blackhole 30 end melody shared grin_med  inst slowstrings
+rock polar 30000. 290. 25.e14 offset -2000. -7000. mutate mass% 75 65. 90. blackhole 30 end melody shared grin_lo inst slowstrings
+rock polar 30000. 300. 20.e14 offset -2000. -7000. mutate mass% 75 65. 90. end melody shared grin_lo inst tuba
+rock polar 30000. 310. 15.e14 offset -2000. -7000. mutate mass% 75 65. 90. end  melody shared grin_hi inst BowedGlass
+rock polar 30000. 320. 10.e14 offset -2000. -7000. mutate mass% 75 65. 90. end melody shared grin_hi inst BowedGlass
+rock polar 30000. 330.  5.e14 offset -2000. -7000. mutate mass% 75 65. 90. end melody shared grin_hi inst SoundTrack
+
+body polar 2500. 120. polar 4.2 210. 8.e14 offset -12500. 3000. melody shared eye1 inst piano1
+body polar 2500. 240. polar 4.2 350. 8.e14 offset -12500. 3000. melody shared eye1 inst piano1
+body polar 2500. 360. polar 4.2  90. 8.e14 offset -12500. 3000. melody shared eye1 inst piano1
+
+body polar 2500. 120. polar 4.2 210. 8.e14 offset 7500. 3000. melody shared eye2 inst piano2
+body polar 2500. 240. polar 4.2 350. 8.e14 offset 7500. 3000. melody shared eye2 inst piano2
+body polar 2500. 360. polar 4.2  90. 8.e14 offset 7500. 3000. melody shared eye2 inst piano2
+
+body polar 40000   0. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_lo inst slowstrings
+body polar 40000  20. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_lo inst slowstrings
+body polar 40000  40. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_lo inst slowstrings
+body polar 40000  60. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_lo inst slowstrings
+body polar 40000  80. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_lo inst slowstrings
+body polar 40000 100. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_lo inst slowstrings
+body polar 40000 120. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_lo inst slowstrings
+body polar 40000 140. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_lo inst slowstrings
+body polar 40000 160. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_hi inst vibes
+body polar 40000 180. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_hi inst vibes
+body polar 40000 200. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_hi inst vibes
+body polar 40000 220. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_hi inst vibes
+body polar 40000 240. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_hi inst vibes
+body polar 40000 260. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_hi inst vibes
+body polar 40000 280. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_hi inst vibes
+body polar 40000 300. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_hi inst vibes
+body polar 40000 320. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_hi inst vibes
+body polar 40000 340. polar 0. 0.  2.e14 offset -2000 -8000.  melody shared face_hi inst vibes
+
+
+stop

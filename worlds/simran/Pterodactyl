@@ -1,0 +1,66 @@
+Title Pterodactylic Pentameter
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+maxbodies 50
+maxrocks 12
+radius 50000.
+friction .99
+gridcircles 10
+gridradii 16
+maxmass 56.e14
+reboundmethod square
+background clear
+background starclusters
+background stars
+drawbg
+
+channel 0  piano1       0 0 
+channel 1  piano2       0 0 
+channel 2  piano3       0 0 
+channel 3  Goblins      0 101
+channel 4  vibes        0 11
+channel 5  organ        0 19
+channel 6  SynStrings   0 50
+channel 7  pickbass     0 34
+channel 8  fretlessbass 0 35
+channel 9  OrchHit      0 55
+channel 10 celesta        0 8
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 halopad      0 94
+channel 14 BowedGlass   0 92
+channel 15 tuba         0 58
+end_channels
+
+melody cross G2 D3 B2 E3 . .  G3 D2 E2 B3 . _ _ end
+melody flight Ab3 Eb3 . .  C3 Eb3 .  _ Ab2 Gb1 C2 Eb2 . .  end
+melody flightlo A1 E2 _ _ C2 E1 . .  A1 C2 E1 _ _ end
+melody clinch C2 E2 G2 B2 . . . . _ C2 E2 G2 A3 . .  end
+melody prey _ _ _ _ _ _ _ _ _ _ _ _ _ Ab0 . . . _ _ _ _ _ _ C#1 . . . end
+
+body  40000.   28000.  0. -10.  4.0e14  inst tuba melody prey mutate mass% 15 90. 107. end
+body  40000.   24000.  0. -10.  4.0e14  inst vibes melody shared cross
+body  40000.   20000.  0. -10.  4.0e14  inst vibes melody shared cross
+body  40000.   16000.  0. -10.  4.0e14  inst vibes melody shared cross
+body  40000.   12000.  0. -10.  4.0e14  inst vibes melody shared cross
+body  40000.    8000.  0. -10.  4.0e14  inst vibes melody shared cross
+
+body  28000.   -18000.  0. -10.  4.0e14  inst halopad melody shared flight
+body  32000.   -16000.  0. -10.  4.0e14  inst slowstrings melody shared clinch
+body  36000.   -14000.  0. -10.  4.0e14  inst slowstrings melody shared clinch
+body  44000.   -15000.  0. -10.  4.0e14  inst SynStrings  melody shared flightlo
+body  48000.   -17000.  0. -10.  4.0e14  inst tuba        melody shared flightlo
+
+
+body polar 45000. 335.  0. 0.  12.0e14  inst BowedGlass melody cross
+body polar  5000. 335.  0. 0.  18.0e14  inst BowedGlass halopad melody flight
+body  -49000. -49000.  0. 0.  18.0e14  inst BowedGlass melody clinch
+
+rock  -30000.  13000. 35.0e14 inst halopad melody shared clinch mutate mass% 10 85. 107. end
+rock  -35000.  14000. 35.0e14 inst halopad melody shared clinch mutate mass% 10 95. 112. end
+rock  40000.  13000. 35.0e14 inst halopad melody shared clinch mutate mass% 10 85. 107. end
+rock  -42800.  -12000. 35.0e14 inst SynStrings melody shared clinch
+
+rock  -22800.  44000. 35.0e14 constrain inst SynStrings melody clinch

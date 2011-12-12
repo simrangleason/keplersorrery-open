@@ -1,0 +1,132 @@
+title Yuri's Pinwheel
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+@notes Created for the Yuri's Night celebration at NASA. April 13, 2007
+
+maxbodies 50
+maxrocks 9
+radius 50000.
+friction .9935
+gridcircles 10
+gridradii 16
+maxmass 20.e14
+background circle
+background starclusters
+reboundmethod circle
+drawbg
+
+channel 0  piano1       0 0 
+channel 1  piano2       0 0 
+channel 2  vibes2        0 11
+channel 3  accord   1 5
+channel 4  vibes        0 11
+channel 5  ReedOrgan    1 4
+channel 6  SynStrings   0 50
+channel 7  IceRain         0 96  // synthy
+channel 8  Kalimba     0 108
+channel 9 Agogo     0 113
+channel 10 celesta      0 8
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 Soundtrack         0 97  // synthy
+channel 14 Crystal         0 98  // short sharp
+channel 15 tuba         0 58
+end_channels
+
+melody arm1_g
+  G2 _ B2 . D2 . F2 . G2 _ B2 . D2 . F2 . 
+  G2 _ B2 . D2 . F2 . G2 _ B2 . D2 . F2 . . . 
+  _ _ _ _ _ _ _ _ 
+  G2 B2  D2 F2        G2 B2  D2  F2
+  G2 B2  D2 F2        G2 B2  D2  F2 . . . 
+  _ _ _ _ _ 
+  G2 . . F2 . . D2 . . B2 . . G2 . . F2 . . D2 . . B2 . . 
+  G2 . . F2 . . D2 . . B2 . . G2 . . 
+  F2 D2 B2 G2 . . F2 D2 B2 G2 . . F2 D2 B2 G2 . . F2 D2 B2 G2 . . . 
+  _ _ _
+end
+melody arm2_bo7
+  D3 F3 B3 _ _   D3 F3 Ab3 B3 _ _    D3 F3 Ab3 B3  _ _ 
+  D3 F3 Ab3 B2 _ _   D3 F3 Ab3 B3 _ _   D3 F3 Ab3 B3 . . . 
+  _ _ _ _ _ _ _ _ _ _ _ _ 
+  D3 . . B2 . . Ab2 . . F2 . .    D3 . . B2 . . . A2 . . F2 . .  
+  D3 B2 . A2 F2    D3  B2 . A2 F2   
+  _ _ _ _ _ _ _ _ _ _ _ _ 
+  D3 . . B2 . . A2 . . F2 . .    D3 . . B2 . . . A2 . . F2 . .  
+  D3 B2 . Ab2 F2    D3  B2 . Ab2 F2   
+  _ _ _ _ _ _ _ _ _ _ _ _ 
+  . . G3 . .  . . G3 . .
+  Ab3 B4   D3 F3 B2
+  . . . 
+  _ _ _ _ _ 
+end
+melody arm3
+   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+   F1 . . D2 . F2 . B2 . Ab2 . . F2 
+   F2 . Ab2 . G2 . E1 . F2 . C2 . E2 . . F1 G1 . . .  
+   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+   F2 _ _ . . Ab2 _ _ .  . C2 _ _ . . E2 _ _ . . F2 _ _ . . G2 _ _ . . E2 _ _ . . G1 _ _ _  . . .  
+   _ _ _ _ _ _ _ 
+end
+melody arm4
+   _ _ _ _ G1 A2 B2 C2 . . . _ _ _ D2 C2 B2 G2 F2 D2 B2 G1 F1 . .  G1 G1 F1 E1 D1 Ab1 B1 . . 
+   _ _ _ _ _ G2 _ _ _ _ _ . . . 
+end
+
+melody blank _ _ _ end
+
+
+body  polar  2500.   0.   polar 1.  90.  5.0e14 inst slowstrings melody shared arm1_g mutate mass% 65 60. 90. end
+body  polar  7500.  30.   polar 1. 120.  5.0e14 inst slowstrings melody shared arm1_g mutate mass% 65 60. 90. end
+body  polar 11500.  60.   polar 1. 150.  5.0e14 inst slowstrings melody shared arm1_g mutate mass% 65 60. 90. end
+body  polar 15500.  80.   polar 1. 170.  5.0e14 inst slowstrings melody shared arm1_g mutate mass% 65 60. 90. end
+body  polar 19000. 100.   polar 1. 190.  6.0e14 inst slowstrings melody shared arm1_g mutate mass% 65 60. 90. end
+body  polar 22000. 120.   polar 1. 210.  6.0e14 inst slowstrings melody shared arm1_g mutate mass% 65 60. 90. end
+body  polar 25000. 140.   polar 1. 230.  6.0e14 inst slowstrings melody shared arm1_g mutate mass% 65 60. 90. end
+body  polar 28000. 160.   polar 1. 250.  7.0e14 inst slowstrings melody shared arm1_g mutate mass% 65 60. 90. end
+body  polar 31000. 180.   polar 1. 270.  7.0e14 inst slowstrings melody shared arm1_g mutate mass% 65 60. 90. end
+body  polar 34000. 200.   polar 1. 290.  7.0e14 inst slowstrings melody shared arm1_g mutate mass% 65 60. 90. end
+body  polar 37000. 230.   polar 1. 320.  8.0e14 inst slowstrings melody shared arm1_g mutate mass% 65 60. 90. end
+body  polar 40000. 250.   polar 1. 340.  8.0e14 inst slowstrings melody shared arm1_g mutate mass% 65 60. 90. end
+
+body  polar  5000. 180.   polar 0. 90.  6.0e14 inst vibes melody shared arm2_bo7 mutate mass% 65 60. 90. end
+body  polar  9500. 210.   polar 0. 90.  6.0e14 inst vibes melody shared arm2_bo7 mutate mass% 65 60. 90. end
+body  polar 13500. 240.   polar 0. 90.  6.0e14 inst vibes melody shared arm2_bo7 mutate mass% 65 60. 90. end
+body  polar 17500. 270.   polar 0. 90.  7.0e14 inst vibes melody shared arm2_bo7 mutate mass% 65 60. 90. end
+body  polar 20500. 300.   polar 0. 90.  7.0e14 inst vibes melody shared arm2_bo7 mutate mass% 65 60. 90. end
+body  polar 23500. 330.   polar 0. 90.  7.0e14 inst vibes2 melody shared arm2_bo7 mutate mass% 65 60. 90. end
+body  polar 26500. 360.   polar 0. 90.  7.0e14 inst vibes2 melody shared arm2_bo7 mutate mass% 65 60. 90. end
+body  polar 29500. 380.   polar 0. 90.  8.0e14 inst vibes2 melody shared arm2_bo7 mutate mass% 65 60. 90. end
+body  polar 32500. 410.   polar 0. 90.  8.0e14 inst vibes2 melody shared arm2_bo7 mutate mass% 65 60. 90. end
+body  polar 35500. 440.   polar 0. 90.  9.0e14 inst vibes2 melody shared arm2_bo7 mutate mass% 65 60. 90. end
+body  polar 38500. 470.   polar 0. 90.  9.0e14 inst vibes2 melody shared arm2_bo7 mutate mass% 65 60. 90. end
+body  polar 41500. 500.   polar 0. 90.  9.0e14 inst vibes melody shared arm2_bo7 mutate mass% 65 60. 90. end
+
+body  polar  2500.  90.   polar 1.  90.  5.0e14 inst piano1 melody shared arm3 mutate mass% 65 60. 90. end
+body  polar  7500. 120.   polar 1. 120.  5.0e14 inst piano1 melody shared arm3 mutate mass% 65 60. 90. end
+body  polar 11500. 150.   polar 1. 150.  5.0e14 inst piano1 melody shared arm3 mutate mass% 65 60. 90. end
+body  polar 15500. 170.   polar 1. 170.  5.0e14 inst piano1 melody shared arm3 mutate mass% 65 60. 90. end
+body  polar 19000. 190.   polar 1. 190.  6.0e14 inst slowstrings melody shared arm3 mutate mass% 65 60. 90. end
+body  polar 22000. 210.   polar 1. 210.  6.0e14 inst slowstrings melody shared arm3 mutate mass% 65 60. 90. end
+body  polar 25000. 230.   polar 1. 230.  6.0e14 inst ReedOrgan melody shared arm3 mutate mass% 65 60. 90. end
+body  polar 28000. 250.   polar 1. 250.  7.0e14 inst ReedOrgan melody shared arm3 mutate mass% 65 60. 90. end
+body  polar 31000. 270.   polar 1. 270.  8.0e14 inst ReedOrgan melody shared arm3 mutate mass% 65 60. 90. end
+body  polar 34000. 290.   polar 1. 290.  8.0e14 inst ReedOrgan melody shared arm3 mutate mass% 65 60. 90. end
+body  polar 37000. 320.   polar 1. 320.  9.0e14 inst ReedOrgan melody shared arm3 mutate mass% 65 60. 90. end
+body  polar 40000. 340.   polar 1. 340. 10.0e14 inst ReedOrgan melody shared arm3 mutate mass% 65 60. 90. end
+
+body  polar  5000. 270.   polar 0. 90.  6.0e14 inst pizzicato melody shared arm4 mutate mass% 65 60. 90. end
+body  polar  9500. 300.   polar 0. 90.  6.0e14 inst pizzicato melody shared arm4 mutate mass% 65 60. 90. end
+body  polar 13500. 330.   polar 0. 90.  6.0e14 inst pizzicato melody shared arm4 mutate mass% 65 60. 90. end
+body  polar 17500. 360.   polar 0. 90.  7.0e14 inst pizzicato melody shared arm4 mutate mass% 65 60. 90. end
+body  polar 20500. 390.   polar 0. 90.  7.0e14 inst pizzicato melody shared arm4 mutate mass% 65 60. 90. end
+body  polar 23500. 420.   polar 0. 90.  7.0e14 inst pizzicato melody shared arm4 mutate mass% 65 60. 90. end
+body  polar 26500. 450.   polar 0. 90.  7.0e14 inst pizzicato melody shared arm4 mutate mass% 65 60. 90. end
+body  polar 29500. 470.   polar 0. 90.  8.0e14 inst pizzicato melody shared arm4 mutate mass% 65 60. 90. end
+body  polar 32500. 500.   polar 0. 90.  9.0e14 inst pizzicato melody shared arm4 mutate mass% 65 60. 90. end
+body  polar 35500. 530.   polar 0. 90.  9.0e14 inst pizzicato melody shared arm4 mutate mass% 65 60. 90. end
+body  polar 38500. 560.   polar 0. 90. 10.0e14 inst pizzicato melody shared arm4 mutate mass% 65 60. 90. end
+body  polar 41500. 590.   polar 0. 90. 10.0e14 inst pizzicato melody shared arm4 mutate mass% 65 60. 90. end
+
+stop

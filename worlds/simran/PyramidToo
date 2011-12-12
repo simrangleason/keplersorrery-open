@@ -1,0 +1,110 @@
+Title Pyramid Too
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+maxbodies 50
+maxrocks 50
+radius 50000.
+friction .99
+gridcircles 10
+gridradii 16
+reboundmethod square
+background clear
+background square
+drawbg
+
+channel 0  piano1       0 0 
+channel 1  piano2       0 0 
+channel 2  piano3       0 0 
+channel 3  frenchhorn   0 69
+channel 4  vibes        0 11
+channel 5  organ        0 19
+channel 6  SynStrings   0 50
+channel 7  pickbass     0 34
+channel 8  panflute     0 75
+channel 9  OrchHit      0 55
+channel 10 celesta      0 8
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 choir_aahs   0 52
+channel 14 choir_oohs   0 53
+channel 15 tuba         0 58
+end_channels
+
+melody scale_C 
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    _ _ _ _ _ _ _ 
+    C#2 D#2 E2 F#2 G#2 A#2 B2 . . . 
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    C2 D2 E2 F2 G2 A3 B3 . . . 
+    _ _ _ _ _ _ _ _ _ _
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    C3 D3 E3 F3 G3 A4 B4 C4 . . . 
+end
+
+melody crown
+   A5 A5 A5 C4 A5 A5 A5 A5 C4 C4 A4 A5 A5 A5 A5 D4 C4 A5 A5 A5 A5 A4 C4 
+end
+melody deepbass1
+   _ _ _ _ _ _ _ _ _ _
+   _ _ _ _ _ _ _ _ _ _
+   _ _ _ E1 C0 _ _ . . . _ _ _ _ _ _ _
+   _ _ _ _ _ _ _ _ _ _
+   C0 . E0 . A1 . . G0 C0 . . . 
+end
+melody deepbass2
+   _ _ _ _ _ _ _ _ _ _
+   _ _ _ _ _ _ _ _ _ _
+   _ _ _ _ _ _ _ _ _ _
+   B1 E0 G1 G0 C0 . . . 
+   _ _ _ _ _ _ _ _ _ _
+   _ _ _ _ _ _ _ _ _ _
+   Bb1 E0 . . . 
+end
+body 0. 38000. 0. 0. 10.e14 inst OrchHit melody scale_C
+nobody 0. 37000. 0. 0. 10.e14 inst OrchHit melody scale_C
+body 10000. 30000. 0. 0. 20.e14 inst pickbass melody deepbass1
+body -10000. 30000. 0. 0. 20.e14 inst tuba melody deepbass2
+
+rock -45000. -45000. 64e14 inst piano1 note A1
+rock -30000. -45000. 64e14 inst piano1 note B1
+rock -15000. -45000. 64e14 inst piano1 note C1
+rock  00000. -45000. 64e14 inst piano1 note D1
+rock  15000. -45000. 64e14 inst piano1 note E1
+rock  30000. -45000. 64e14 inst piano1 note F1
+rock  45000. -45000. 64e14 inst piano1 note G1
+
+rock -37000. -33000. 54e14 inst piano1 note A2
+rock -22000. -33000. 54e14 inst piano1 note B2
+rock  -7000. -33000. 54e14 inst piano1 note C2
+rock   7000. -33000. 54e14 inst piano1 note D2
+rock  22000. -33000. 54e14 inst piano1 note E2
+rock  37000. -33000. 54e14 inst piano1 note G2
+
+rock -25000. -21000. 50e14 inst piano1 note A3
+rock -12000. -21000. 50e14 inst piano1 note B3
+rock   0000. -21000. 50e14 inst piano1 note C3
+rock  12000. -21000. 50e14 inst piano1 note D3
+rock  25000. -21000. 50e14 inst piano1 note E3
+
+rock -18000. -10000. 46e14 inst piano1 note F3
+rock  -6000. -10000. 46e14 inst piano1 note G3
+rock   6000. -10000. 46e14 inst piano1 note A4
+rock  18000. -10000. 46e14 inst piano1 note B4
+
+rock -11000. -1000. 44e14 inst celesta note C4
+rock  -0000. -1000. 44e14 inst celesta note D4
+rock  11000. -1000. 44e14 inst celesta note E4
+
+rock  -6000. 7000. 42e14  inst vibes note F4
+rock   6000. 7000. 42e14 inst vibes note G4
+
+rock   000. 16000. 46e14 inst vibes melody crown
+

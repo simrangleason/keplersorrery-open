@@ -1,0 +1,138 @@
+Title Spiral
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+maxbodies 50
+maxrocks 6
+radius 50000.
+friction .99
+gridcircles 10
+gridradii 16
+reboundmethod circle
+background clear
+background circle
+drawbg
+
+channel 0  piano1       0 0 
+channel 1  piano2       0 0 
+channel 2  piano3       0 0 
+channel 3  piano4       0 0 
+channel 4  vibes        0 11
+channel 5  organ        0 19
+channel 6  SynStrings   0 50
+channel 7  pickbass     0 34
+channel 8  fretlessbass 0 35
+channel 9  OrchHit      0 55
+channel 10 celesta        0 8
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 choir_aahs   0 52
+channel 14 choir_oohs   0 53
+channel 15 tuba         0 58
+end_channels
+
+scale cmaj2 C2 D2 E3 F2 G2 A3 B3 C3 D3 E3 F3 G3 A3 B3 C4 _ _ end
+scale amin1 A1 B1 C1 D1 E1 F1 G1 A2 B2 C2 D2 E3 F2 G2 A3 _ _ end
+scale cpent3 C3 D3 E3 G3 A4 C4 D4 E4 G4 A4 C5 _ _ end
+scale cpent1 C1 D1 E1 G1 A2 C2 D2 E2 G2 A2 C3 _ _ end
+melody mclimb C2 E2 D2 F2 Eb2 G2 A3 Ab3 B3 C3 E3 D3 E3 D3 C3 D3 F3 G3 _ end
+melody mdescend A4 G3 F3 D3 C3 B3 A3 Ab3 G3 B3 end
+melody mresolve C2 E2 D2 F2 E2 G2 _ _ _ F2 A3 _  Ab3 _ _ G2 A3 B3 C3 _ _ _ _ end
+melody mpent _ _ _ _ _ _ _ _ C2 E2 D2 G2 A3 E3 D3 G2 E3 E2 _ _ C2 D2 G2 A3 C3 A3 G2 E2 D2 _ end
+melody arpegg_c C1 E1 G1 _ _ _ end
+melody arpegg_Am7 A0 C1 G1 E1 A0 _ _ _ _ _ end
+melody arpegg_Gm6 G0 Bb1 D1 E1 G1 E1 . . D1 _ _ _ _ _ end
+melody sparse_hiC _ _ _ _ _ _ _ _  C4 . . .  _ _ _ _ _ _ C5 . .  .  _ _ _ _ _ end
+melody sparse_hiEb _ _ _ _ _ _ _ _  Eb4 . . . _ _ _ _ _ _ _ _ Eb5 . . .    _ _ _ _ _ end
+melody sparse_hiD _ _ _ _ _ _ _ _  D3 . . . _ _ _ _ _ _ _ _ D4 . . .   _ _ _ _ _ end
+melody sparse_hiAb _ _ _ _ _ _ _ _  Ab4 . . _ . _ _ _ _ _ _ _ Ab5 . . .    _ _ _ _ _ end
+melody sparse_hiA _ _ _ _ _ _  A4 . . _ . _ _ _ _ _ _ _ _ _ _ A5 . . .    _ _ _ _ _ end
+melody hiA_down _ _ _ _ _ _  A5 G4 E4 Eb4 D4 C4 B4 A4 . . _ _ _ _ _ _ _ _  _ _ _ _ _ end
+
+melody ablues2_sparse
+    _ _ _ _ _ _ _ _ _ _ _ 
+   A2 . . B2 C#2  A2 . . B2 C#2 . 
+   _ _ _ _ _ _ _  
+   A2 E2 . F#2 . A2 C#2 . . E2 Bb2 . . . _ _ _ _ A3 . . .
+end
+melody Cmin_pent
+   _ _ _ _ _ _ _ _ _ _ _ 
+  C2 D2 Eb2 G2 Ab2
+   _ _ _ _ _ _ _  
+  Ab3 Eb3 G3 D3 C3 Eb3 Ab3 _ _ _ _
+end
+
+nobody polar 45000. 0.   0000.   0.  38.0e14  inst slowstrings melody Cmin_pent
+body polar 45000. 335.  0000.   0.  38.0e14  inst slowstrings melody arpegg_Am7
+body polar 45000. 0.   0000.   0.  38.0e14  inst SynStrings melody Cmin_pent
+nobody polar 45000. 335.  0000.   0.  38.0e14  inst SynStrings melody arpegg_Am7
+body polar 25000. 270.  0000.   0.  38.0e14  inst SynStrings channel melody arpegg_Gm6
+body polar 45000. 90.   0000.   0.  13.0e14  inst vibes melody mpent
+body polar 45000. 135.  0000.   0.  13.0e14  inst celesta melody mresolve
+nobody polar 45000. 300.  0000.   0.  13.0e14  inst celesta melody sparse_hiC
+
+body polar 45000. 300.  0000.   0.  13.0e14  inst organ melody ablues2_sparse
+body polar 45000. 270.  0000.   0.  13.0e14  inst vibes melody Cmin_pent
+
+
+rock polar 49000.  170. 45.0e14 repelFactor 2.0
+rock polar 48500.  245. 55.0e14
+rock polar 48000.   45. 55.0e14  inst electricpiano2 melody sparse_hiA
+norock polar 45000. 100. 55.0e14 constrain note Ab4
+norock polar 45000. 200. 55.0e14 constrain note E2
+norock polar 45000. -45. 55.0e14 constrain note A1
+
+nobody  polar 4000. 20.   polar 0. 90.  4.0e14 inst vibes  melody sparse_hiAb
+body  polar 8000. 30.   polar 0. 90.  14.0e14 inst celesta melody hiA_down
+body  polar 12000. 40.   polar 0. 90.  4.0e14 inst celesta melody sparse_hiEb
+body  polar 14000. 50.   polar 0. 90.  4.0e14 inst NylonGuitar melody sparse_hiD
+body  polar 16000. 60.   polar 0. 90.  4.0e14 inst NylonGuitar melody sparse_hiD
+body  polar 18000. 70.   polar 0. 90.  4.0e14 inst electricpiano2 melody sparse_hiC
+body  polar 20000. 80.   polar 0. 90.  4.0e14 inst vibes melody sparse_hiC
+
+body  polar 22000. 90.   polar 0. 90.  4.0e14  inst celesta melody sparse_hiAb
+body  polar 24000. 100.   polar 0. 90.  4.0e14
+body  polar 26000. 110.   polar 0. 90.  4.0e14
+body  polar 28000. 120.   polar 0. 90.  4.0e14
+body  polar 30000. 130.   polar 0. 90.  4.0e14
+body  polar 32000. 140.   polar 0. 90.  4.0e14
+body  polar 34000. 150.   polar 0. 90.  4.0e14
+body  polar 36000. 160.   polar 0. 90.  4.0e14
+body  polar 38000. 170.   polar 0. 90.  4.0e14
+body  polar 40000. 180.   polar 0. 90.  4.0e14
+body  polar 42000. 190.   polar 0. 90.  4.0e14
+body  polar 44000. 200.   polar 0. 90.  4.0e14 
+body  polar 46000. 210.   polar 0. 90.  4.0e14
+body  polar 48000. 220.   polar 0. 90.  14.0e14 inst OrchHit melody hiA_down
+
+nobody  -500. 10000.   0000.  0.  4.0e14 
+
+stop
+
+body  -600. 10000.   0000.  0.  4.0e14
+body  -700. 10000.   0000.  0.  4.0e14
+body  -800. 10000.   0000.  0.  4.0e14
+
+body  -900. 10000.   0000.  0.  4.0e14
+body  -1000. 10000.   0000.  0.  4.0e14
+body  -1100. 10000.   0000.  0.  4.0e14
+body  -1200. 10000.   0000.  0.  4.0e14
+
+body  -500. 30000.   0000.  0.  4.0e14
+body  -600. 30000.   0000.  0.  4.0e14
+body  -700. 30000.   0000.  0.  4.0e14
+body  -800. 30000.   0000.  0.  4.0e14
+
+body  -900. 30000.   0000.  0.  4.0e14
+body  -1000. 30000.   0000.  0.  4.0e14
+body  -1100. 30000.   0000.  0.  4.0e14
+body  -1200. 30000.   0000.  0.  4.0e14
+body  -1300. 30000.   0000.  0.  4.0e14
+
+nobody 25000. 12500.   .15    -.54   12.0e14 note C3
+nobody -3500. 110000.   0000.   .014  13.0e14 note C4
+nobody -1000. 10000.   0000.   .054  8.0e14  note E4
+nobody 30000. 14000.   0000.  -.014  17.0e14  note F3
+nobody 35000. 14000.   0000.  -.014  6.0e14  note Bb4
+

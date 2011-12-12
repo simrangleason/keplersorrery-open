@@ -1,0 +1,213 @@
+Title Grid thy Lions 2
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+maxbodies 50
+maxrocks 50
+canvas 480 480
+radius 50000.
+friction .99
+dt 65
+reboundmethod square
+background clear
+background square
+drawbg
+
+channel 0  piano1       0 0 
+channel 1  IceRain      0 96  // synthy
+channel 2  BowedGlass   0 92  // BowedGlass
+channel 3  Soundtrack   0 79
+channel 4  vibes        0 11
+channel 5  organ        0 19
+channel 6  SynStrings   0 50
+channel 7  Crystal      0 98
+channel 8  Fantastia     0 88
+channel 9  OrchHit      0 55
+channel 10 celesta      0 8
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 choir_aahs   0 52
+channel 14 choir_oohs   0 53
+channel 15 tuba         0 58
+end_channels
+
+
+
+melody glass1_Gm7 
+  G2 _ Bb2 . D2 . F2 . G2 _ Bb2 . D2 . F2 . 
+  G2 _ Bb2 . D2 . F2 . G2 _ Bb2 . D2 . F2 . . . 
+  _ _ _ _ _ _ _ _ 
+  G2 Bb2  D2 F2        G2 Bb2  D2  F2
+  G2 Bb2  D2 F2        G2 Bb2  D2  F2 . . . 
+  _ _ _ _ _ 
+  G2 . . F2 . . D2 . . Bb2 . . G2 . . F2 . . D2 . . Bb2 . . 
+  G2 . . F2 . . D2 . . Bb2 . . G2 . . 
+  F2 D2 Bb2 G2 . . F2 D2 Bb2 G2 . . F2 D2 Bb2 G2 . . F2 D2 Bb2 G2 . . . 
+  _ _ _
+end
+melody glass2_Do7_Cm 
+  D3 F3 A3 Bb3   D3 F3 A3 Bb3   D3 F3 A3 Bb3   
+  D3 F3 A3 Bb3   D3 F3 A3 Bb3   D3 F3 A3 Bb3 . . . 
+  _ _ _ _ _ _ _ _ _ _ _ _ 
+  D3 . . Bb2 . . A2 . . F2 . .    D3 . . Bb2 . . . A2 . . F2 . .  
+  D3 Bb2 . A2 F2    D3  Bb2 . A2 F2   
+  _ _ _ _ _ _ _ _ _ _ _ _ 
+  D3 . . Bb2 . . A2 . . F2 . .    D3 . . Bb2 . . . A2 . . F2 . .  
+  D3 Bb2 . A2 F2    D3  Bb4 . A3 F2   
+  _ _ _ _ _ _ _ _ _ _ _ _ 
+  C3 . . G3 . . C3 . . G3 . . C3 . . Eb3 . .  C3 . . Eb3 . . 
+  G3 Eb3 C3 Bb3   G3 Eb3 C3 Bb4   
+    C4 Bb3   Eb3 C4 Eb3 C3   G3 Eb3 G3 Eb3 . . . 
+  C3 Eb3 G3 Bb4   C3 Eb3 G2 Bb4
+  . . . 
+  _ _ _ _ _ 
+end
+melody glass3_Bb7
+   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+   Bb2 . . D3 . . F3 . . A2 . . Bb2 . . D3 . . F3 . . A3
+   Bb2 . . D3 . . F3 . . A2 . . Bb2 . . D3 . . F3 . . A3
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _
+   Bb2 D3 F3 A2 Bb2  D3  F3  A3
+   Bb2 D3 F3 A2 Bb2  D3  F3  A3
+
+end
+
+melody glass3_loBb7
+   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+   Bb0 . . D1 . . F1 . . A0 . . Bb0 . . D1 . . F1 . . A1
+   Bb0 . . D1 . . F1 . . A0 . . Bb0 . . D1 . . F1 . . A1
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _
+   Bb0 D1 F1 A0 Bb0  D1  F1  A1
+   Bb0 D1 F1 A0 Bb0  D1  F1  A1
+
+end
+
+melody glass4_stringFm7
+   _ _ _ _ _ _ _ _ _ _ 
+_ _ _ _ _ _ _ _ _ _
+   F2 . A3 . C3 . Eb3 . F3 . C3 . Eb3 . . F3 
+   F2 . A3 . C3 . Eb3 . F3 . C3 . Eb3 . . F3 
+   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+   F2 _ _ . . A3 _ _ .  . C3 _ _ . . Eb3 _ _ . . F3 _ _ . . C3 _ _ . . Eb3 _ _ . . F3 . . .  
+   _ _ _ _ _ _ _ 
+end
+melody drone_G
+   _ _ _ _ G2 _ _ _ _ _ _ _ . . .
+   _ _ _ _ _ G3 _ _ _ _ _ . . . 
+end
+
+melody drone_Bb
+   _ _ _ _ Bb2 _ _ _ _ _ _ _ . . .
+   _ _ _ _ _ Bb1 _ _ _ _ _ . . . 
+end
+melody blank _ _ _ end
+
+melody scale_C 
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    _ _ _ _ _ _ _ 
+    C#2 D#2 E2 F#2 G#2 A#2 B2 . . . 
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    C2 D2 E2 F2 G2 A3 B3 . . . 
+    _ _ _ _ _ _ _ _ _ _
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    C3 D3 E3 F3 G3 A4 B4 C4 . . . 
+end
+
+melody crown
+   A5 A5 A5 C4 A5 A5 A5 A5 C4 C4 A4 A5 A5 A5 A5 D4 C4 A5 A5 A5 A5 A4 C4 
+end
+melody deepbass1
+   _ _ _ _ _ _ _ _ _ _
+   _ _ _ _ _ _ _ _ _ _
+   _ _ _ E1 C0 _ _ . . . _ _ _ _ _ _ _
+   _ _ _ _ _ _ _ _ _ _
+   C0 . E0 . A1 . . G0 C0 . . . 
+end
+melody deepbass2
+   _ _ _ _ _ _ _ _ _ _
+   _ _ _ _ _ _ _ _ _ _
+   _ _ _ _ _ _ _ _ _ _
+   B1 E0 G1 G0 C0 . . . 
+   _ _ _ _ _ _ _ _ _ _
+   _ _ _ _ _ _ _ _ _ _
+   Bb1 E0 . . . 
+end
+
+body  50000.  50000. -20.   0. 30.e14 inst BowedGlass melody shared glass1_Gm7
+body  50000. -50000.   0.  20. 30.e14 inst IceRain melody shared glass2_Do7_Cm
+body -50000.  50000.   0. -20. 30.e14 inst BowedGlass melody shared glass3_Bb7
+body -50000. -50000.  20.   0. 30.e14 inst IceRain melody shared glass1_Gm7
+
+nobody  50000.  50000. -20.   0. 30.e14 inst IceRain melody shared glass1_Gm7
+nobody  50000. -50000.   0.  20. 30.e14 inst IceRain melody shared glass2_Do7_Cm
+nobody -50000.  50000.   0. -20. 30.e14 inst IceRain melody shared glass3_Bb7
+nobody -50000. -50000.  20.   0. 30.e14 inst IceRain melody shared glass1_Gm7
+
+
+rock -40000. -40000. 64e14 inst vibes melody shared glass2_Do7_Cm
+rock -30000. -40000. 64e14 inst vibes melody shared glass2_Do7_Cm
+rock -15000. -40000. 64e14 inst vibes melody shared glass2_Do7_Cm
+rock  00000. -40000. 64e14 inst vibes melody shared glass2_Do7_Cm
+rock  15000. -40000. 64e14 inst vibes melody shared glass2_Do7_Cm
+rock  30000. -40000. 64e14 inst vibes melody shared glass2_Do7_Cm
+rock  40000. -40000. 64e14 inst vibes melody shared glass2_Do7_Cm
+
+rock -40000. -30000. 64e14 inst IceRain melody shared glass2_Do7_Cm
+rock -30000. -30000. 64e14 inst IceRain melody shared glass2_Do7_Cm
+rock -15000. -30000. 64e14 inst IceRain melody shared glass2_Do7_Cm
+rock  00000. -30000. 64e14 inst IceRain melody shared glass2_Do7_Cm
+rock  15000. -30000. 64e14 inst IceRain melody shared glass2_Do7_Cm
+rock  30000. -30000. 64e14 inst IceRain melody shared glass2_Do7_Cm
+rock  40000. -30000. 64e14 inst IceRain melody shared glass2_Do7_Cm
+
+rock -40000. -15000. 64e14 inst tuba melody shared glass3_loBb7
+rock -30000. -15000. 64e14 inst tuba melody shared glass3_loBb7
+rock -10000. -10000. 64e14 inst slowstrings melody shared glass4_stringFm7
+rock  00000. -10000. 64e14 inst slowstrings melody shared glass4_stringFm7
+rock  10000. -10000. 64e14 inst slowstrings melody shared glass4_stringFm7
+rock  30000. -15000. 64e14 inst tuba melody shared glass3_loBb7
+rock  40000. -15000. 64e14 inst tuba melody shared glass3_loBb7
+
+rock -40000.   000. 64e14 inst tuba melody shared glass3_loBb7
+rock -30000.   000. 64e14 inst tuba melody shared glass3_loBb7
+rock -10000.   000. 64e14 inst slowstrings melody shared glass4_stringFm7
+rock  00000.   000. 64e14 inst slowstrings melody shared glass4_stringFm7 mutate after 60 mass% 35 60. 145. end
+rock  10000.   000. 64e14 inst slowstrings melody shared glass4_stringFm7
+rock  30000.   000. 64e14 inst tuba melody shared glass3_loBb7
+rock  40000.   000. 64e14 inst tuba melody shared glass3_loBb7
+
+rock -40000. 15000. 64e14 inst tuba melody shared glass3_loBb7
+rock -30000. 15000. 64e14 inst tuba melody shared glass3_loBb7
+rock -10000. 10000. 64e14 inst slowstrings melody shared glass4_stringFm7
+rock  00000. 10000. 64e14 inst slowstrings melody shared glass4_stringFm7
+rock  10000. 10000. 64e14 inst slowstrings melody shared glass4_stringFm7
+rock  30000. 15000. 64e14 inst tuba melody shared glass3_loBb7
+rock  40000. 15000. 64e14 inst tuba melody shared glass3_loBb7
+
+rock -40000. 30000. 64e14 inst pizzicato melody shared glass3_Bb7
+rock -30000. 30000. 64e14 inst pizzicato melody shared glass3_Bb7
+rock -15000. 30000. 64e14 inst pizzicato melody shared glass3_Bb7
+rock  00000. 30000. 64e14 inst pizzicato melody shared glass3_Bb7
+rock  15000. 30000. 64e14 inst pizzicato melody shared glass3_Bb7
+rock  30000. 30000. 64e14 inst pizzicato melody shared glass3_Bb7
+rock  40000. 30000. 64e14 inst pizzicato melody shared glass3_Bb7
+
+rock -40000. 40000. 64e14 inst SynStrings melody shared glass1_Gm7
+rock -30000. 40000. 64e14 inst SynStrings melody shared glass1_Gm7
+rock -15000. 40000. 64e14 inst SynStrings melody shared glass1_Gm7
+rock  00000. 40000. 64e14 inst SynStrings melody shared glass1_Gm7
+rock  15000. 40000. 64e14 inst SynStrings melody shared glass1_Gm7
+rock  30000. 40000. 64e14 inst SynStrings melody shared glass1_Gm7
+rock  40000. 40000. 64e14 inst SynStrings melody shared glass1_Gm7
+
+
+
+
+stop

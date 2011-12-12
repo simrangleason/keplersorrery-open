@@ -1,0 +1,72 @@
+# 
+# Infos
+# 
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+@author Simran Gleason
+@notes Will the big one capture a satellite?
+#notes Try experimenting with their orbits
+
+# 
+# Metadata
+# 
+title Capture!
+maxbodies 50
+maxrocks 6
+radius 50000.0
+friction 1.0
+trails 11
+gridcircles 24
+gridradii 36
+reboundmethod circle
+background clear
+background square
+background starclusters
+background starclusters
+minmass 6.5E13
+
+drawbg
+# 
+# Instruments
+# 
+channel 0 piano1 0 0
+channel 1 piano2 0 0
+channel 2 piano3 0 0
+channel 3 frenchhorn 0 44
+channel 4 vibes 0 11
+channel 5 organ 0 19
+channel 6 SynStrings 0 50
+channel 7 Crystal 0 98
+channel 8 IceRain 0 96
+channel 9 Soundtrack 0 97
+channel 10 piano4 0 0
+channel 11 slowstrings 0 49
+channel 12 pizzicato 0 45
+channel 13 choir_aahs 0 52
+channel 14 choir_oohs 0 53
+channel 15 tuba 0 58
+end_channels
+
+# 
+# Melodies
+# 
+
+melody test2 _ _ _ _ G1 A1 B1 . . C0 _ _ _ . . . _ _ _ _ end
+melody clash3 A#3 E3 G3 D3 G3 _ _ _ _ _ _ _ _ _ _ _ _ F3 _ _ _ A#3 A#2 _ _ _ _ end
+melody underdrone_Dm7 D1 . . _ _ _ _ _ F1 A1 _ C1 A1 D2 _ _ . _ _ end
+melody clash4 F3 E3 G3 G#3 _ _ _ _ _ _ _ _ _ _ _ C3 _ _ _ E3 . . . _ _ _ _ _ end
+melody clash1 D1 E1 D#1 F1 C1 _ _ _ _ E1 _ E2 _ _ F2 _ _ _ _ _ _ F3 A3 C3 _ _ _ _ _ end
+melody underdrone_Gm _ _ G1 A#1 . _ G1 E1 D2 _ _ _ _ _ G0 A#1 _ _ _ G1 E1 D2 _ _ . . . _ _ _ _ _ _ E2 G2 _ A#1 G2 D2 _ _ _ end
+melody test1 C1 D1 E1 F1 _ _ _ _ _ _ _ _ _ end
+melody clash2 G2 E2 C3 C2 E2 C1 E1 _ _ G1 A#2 D2 _ _ _ _ _ end
+
+
+
+body       27632.5  13750.  1.6833  0.  6.3948E16 melody shared underdrone_Dm7 inst slowstrings
+body polar 20436.2194 -71.5651  -12.65  1.2844001  6.6267E15    melody shared underdrone_Dm7 inst slowstrings
+#body polar 20436.2194 -71.5651  -12.65  1.28431  6.6267E15    melody shared underdrone_Dm7 inst slowstrings
+
+#body       27632.5  13750.  1.6833  0.  6.3803E16 melody shared underdrone_Dm7 inst slowstrings
+#body polar 20436.2194 -71.5651  -12.6  1.2833  6.6267E15    melody shared underdrone_Dm7 inst slowstrings
+
+

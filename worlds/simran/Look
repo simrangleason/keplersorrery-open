@@ -1,0 +1,76 @@
+title LooK!
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+@notes one of a series of worlds inspired by the notorious
+@notes and elusive Belinda Select.
+
+maxbodies 50
+maxrocks 50
+radius 50000.
+friction .995
+gridcircles 10
+gridradii 16
+reboundmethod circle
+maxmass 85.e14
+background clear
+
+channel 0  piano1       0 0
+channel 1  BowedGlass         0 92
+channel 2  piano2       0 0
+channel 3  SeaShore     0 122
+channel 4  vibes        0 11
+channel 5  organ        0 19
+channel 6  Taiko        0 116
+channel 7  SweepPad        0 95
+channel 8  IceRain      0 96
+channel 9  ReverseCymbal   0 119
+channel 9 slowstrings2  0 49
+channel 10  koto        0 107
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 FretNoise     0 120
+channel 14 tuba   0 58
+channel 15 Helicopter         0 125
+end_channels
+
+melody orb1 F3 A3 D3 _ _ _ C3 F3 A2 G3  _ _ _ end
+melody orb2 Bb2 C2 D2 E2 F2 A2 C2 . . . D2 F2 A3 . . . _ _ _ end
+melody goldteeth D0 A0 D0 F0 . . . A0 F0 C1 D0 . . . end
+melody silverteeth F1 C1 D1 A1 . . G1 Bb1 . . D0 D1 F0 F1 A0 A1 . . . _ _ _ end
+
+melody look _ _ _ _ _ _ _ _ Ab3 . . . _ _ _ _ _ _ C#3 . . . _ _ _ end
+
+body polar 26000. 220. 0. 0.  5.e14 offset -8000. -2000. mutate mass% 85 70. 102. end melody shared goldteeth inst IceRain
+body polar 26000. 230. 0. 0. 10.e14 offset -8000. -2000. mutate mass% 85 70. 102. end melody shared goldteeth inst IceRain
+body polar 26000. 240. 0. 0. 15.e14 offset -8000. -2000. mutate mass% 85 70. 102. end melody shared goldteeth inst BowedGlass
+body polar 26000. 250. 0. 0. 20.e14 offset -8000. -2000. mutate mass% 85 70. 102. end melody shared silverteeth inst tuba
+body polar 26000. 260. 0. 0. 25.e14 offset -8000. -2000. mutate mass% 85 70. 102. end melody shared silverteeth inst slowstrings
+body polar 26000. 270. 0. 0. 25.e14 offset -8000. -2000. mutate mass% 85 70. 102. end melody shared silverteeth inst slowstrings
+body polar 26000. 280. 0. 0. 25.e14 offset -8000. -2000. mutate mass% 85 70. 102. end melody shared silverteeth inst slowstrings
+body polar 26000. 290. 0. 0. 25.e14 offset -8000. -2000. mutate mass% 85 70. 102. end melody shared silverteeth inst slowstrings
+body polar 26000. 300. 0. 0. 20.e14 offset -8000. -2000. mutate mass% 85 70. 102. end melody shared silverteeth inst tuba
+body polar 26000. 310. 0. 0. 15.e14 offset -8000. -2000. mutate mass% 85 70. 102. end  melody shared goldteeth inst BowedGlass
+body polar 26000. 320. 0. 0. 10.e14 offset -8000. -2000. mutate mass% 85 70. 102. end melody shared goldteeth inst BowedGlass
+body polar 26000. 330.  0. 0. 5.e14 offset -8000. -2000. mutate mass% 85 70. 102. end melody shared goldteeth inst BowedGlass
+
+
+rock polar 4500.   0.  12.e14 offset -22000. 1000. melody shared orb1 inst vibes
+rock polar 4500.  60.  12.e14 offset -22000. 1000. melody shared orb1 inst vibes
+rock polar 4500. 120.  12.e14 offset -22000. 1000. melody shared orb1 inst vibes
+rock polar 4500. 180.  12.e14 offset -22000. 1000. melody shared orb1 inst vibes
+rock polar 4500. 240.  12.e14 offset -22000. 1000. melody shared orb1 inst vibes
+rock polar 4500. 300.  12.e14 offset -22000. 1000. melody shared orb1 inst vibes
+
+rock polar 4500.   0.  12.e14 offset 0000. 1000. melody shared orb2 inst pizzicato
+rock polar 4500.  60.  12.e14 offset 0000. 1000. melody shared orb2 inst pizzicato
+rock polar 4500. 120.  12.e14 offset 0000. 1000. melody shared orb2 inst pizzicato
+rock polar 4500. 180.  12.e14 offset 0000. 1000. melody shared orb2 inst pizzicato
+rock polar 4500. 240.  12.e14 offset 0000. 1000. melody shared orb2 inst pizzicato
+rock polar 4500. 300.  12.e14 offset 0000. 1000. melody shared orb2 inst pizzicato
+
+body polar 1500. 340. 0. 0. 19.e14 offset -22000. 1000. melody shared look inst piano1
+body polar 1500. 340. 0. 0. 22.e14 offset   0000. 1000. melody shared look inst piano1
+
+
+stop

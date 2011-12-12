@@ -1,0 +1,145 @@
+Title Triangulate
+@author Simran Gleason
+@license Creative Commons Attribution Non-Commercial Share-Alike
+@license http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+maxbodies 12
+maxrocks 10
+canvas 650 650
+radius 50000.
+friction .9872
+dt 45.
+background clear
+reboundmethod circle
+background circle
+drawbg
+minmass 24.e14
+maxmass 8.e15
+repelfactor .5
+
+channel 0  piano1       0 0 
+channel 1  IceRain         0 96  // synthy
+channel 2  Soundtrack         0 97  // synthy
+channel 3  frenchhorn   0 69
+channel 4  vibes        0 11
+channel 5  Fantasia     0 88
+channel 6  bottle       0 76
+channel 7  Crystal      0 98  // short sharp
+channel 8  panflute     0 75
+channel 9  OrchHit      0 55
+channel 10 celesta      0 8
+channel 11 slowstrings  0 49
+channel 12 pizzicato    0 45
+channel 13 BowedGlass   0 92
+channel 14 Kalimba       0 108
+channel 15 tuba         0 58
+end_channels
+
+# D maj:  D e f# G A b c# D
+# I:  D f# A (C#)
+# ii: e G  b
+# IV: G b  D (f#)
+# V:  A c# E (G)
+# vi: b D  f#
+
+
+melody Ia  D2 . . D2 f#2 . . . D3 . . F#2 D2 . . . end
+melody Ib  A2 . f#1 . . A3 A2 F#2 . . . _ _ _ end
+melody Ic  . . . A2  G2 . . . A3  G2 A2 . . . end
+melody Ibass D1 . F0 . A1 A0 D1 F0 A1 D1 . . . end
+
+melody Iao  D2 D3 f#2 . . . Ab3 . D2 . . F#2 D2 . . . end
+melody Ibo  Ab2 f#3 Ab3 Ab2 F#2 . . . _ _ _ end
+melody Ico  Ab2 _ .  . F#2 D2 . . . D3 D2 F#2 A2 . . . end
+
+melody iia E2 G2 . . . G1 G3 G1 E1 . . . end
+melody iib . . . G2 B2 . . . end
+melody iic G2 B2 G3 B2 . . . G2 G3 . B3 B1 . . . _ _ _  end
+melody iibass E1 G1 B1 . . . B1 E0 E1 . . . end
+
+melody IVa . G2 B2 . . G1 G3 B2 B1 . . . end
+melody IVb b3 . D2 . . B2 D3 B2 . . .  end
+melody IVc D2 f#2 . . . D3 G2 D1 D1 . . . f#1 . . .  end
+melody IVbass G0 . B1 . B0 D1 D0 G1 G0 . . . end
+
+melody Va  A2 c#1 C#2 C#3 A2 A3 C#1 end
+melody Vb  . . C#2 E2 E2 E3 . . . C#1 .  end
+melody Vc  G2 E2  G3 . . . E1 G2 E3 E2 . . . end
+melody Vbass A1 C#1 C#0 E1 A1 E0 . . . _ _ _ end
+
+melody via D2 B2 . . D1 B1 . . . end
+melody vib f#1 B2 . . F#1 F#2 B2 . . .   end
+melody vic . . D2 f#2  F#1 F#3 D2 F#2 D3 D2 . . . end
+melody vibass B0 B1 D0 D1 B1 F#1 . . . end
+
+#These sequences can be seconds, cycles or iterations(?) change the melodies, each one for X seconds
+sequence A
+    timetype seconds
+start
+      melody Ia  10
+      melody IVa 10
+      melody Va  10
+      melody IVa  5
+      melody via 15
+      melody iia 10
+      melody Va  15
+      melody Iao 10
+end
+
+sequence B
+    timetype seconds
+start
+      melody Ib  10
+      melody IVb 10
+      melody Vb  10
+      melody IVb  5
+      melody vib 15
+      melody iib 10
+      melody Vb  15
+      melody Ibo 10
+end
+
+sequence C
+    timetype seconds
+start
+      melody Ic  10
+      melody IVc 10
+      melody Vc  10
+      melody IVc  5
+      melody vic 15
+      melody iic 10
+      melody Vc  15
+      melody Ico 10
+end
+
+sequence BASS
+    timetype seconds
+start
+      melody Ibass  10
+      melody IVbass 10
+      melody Vbass  10
+      melody IVbass  5
+      melody vibass 15
+      melody iibass 10
+      melody Vbass  15
+      melody Ibass  10
+end
+ 
+
+body  polar 30000.   0. polar 8.  90. 60.e14 inst slowstrings sequence BASS mutate after 55 mass% 85 75 90 end
+body  polar 16000.  40. polar 8. 130. 50.e14 inst vibes     sequence shared A
+body  polar 16000.  80. polar 8. 170. 50.e14 inst vibes     sequence shared A
+
+
+body  polar 30000. 120. polar 8. 210. 60.e14 inst slowstrings sequence BASS mutate after 55 mass% 85 75 85 end
+body  polar 16000. 160. polar 8. 250. 50.e14 inst vibes     sequence shared B
+body  polar 16000. 200. polar 8. 290. 50.e14 inst vibes     sequence shared B
+
+body  polar 30000. 240. polar 8. 330. 60.e14 inst BowedGlass sequence BASS mutate after 55 mass% 85 75 90 end
+body  polar 16000. 280. polar 8. 370. 50.e14 inst vibes      sequence shared C
+body  polar 16000. 320. polar 8. 410. 50.e14 inst vibes      sequence shared C
+
+
+
+
+stop
